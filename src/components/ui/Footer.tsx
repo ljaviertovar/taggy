@@ -1,4 +1,4 @@
-import { Button, Center, Box, Flex, useMediaQuery } from "@chakra-ui/react"
+import { Button, Center, Box, Flex, useMediaQuery, Link } from "@chakra-ui/react"
 import IconTaggyCloudinary from "../../assets/taggyIcons/IconTaggyCloudinary"
 import IconTaggyMidudev from "../../assets/taggyIcons/IconTaggyMidudev"
 import IconTaggyGithub from "../../assets/taggyIcons/IconTaggyGithub"
@@ -19,16 +19,28 @@ export default function Footer() {
 							Hackathon organized by:
 						</Flex>
 						<Flex mt={`${isDesktop ? "0" : "2"}`} alignItems={`${isDesktop ? "end" : "center"}`} gap={1}>
-							<IconTaggyCloudinary height={"22px"} />
+							<Link href='https://cloudinary.com/' target='_blank'>
+								<IconTaggyCloudinary height={"22px"} />
+							</Link>
 							and
-							<IconTaggyMidudev height={"22px"} />
+							<Link href='https://midu.dev/' target='_blank'>
+								<IconTaggyMidudev height={"22px"} />
+							</Link>
 						</Flex>
 					</Flex>
 				</Box>
-				<Button variant={"outline"} size={"sm"} my={`${isDesktop ? "0" : "4"}`} gap={2}>
+				<Link
+					href='https://github.com/ljaviertovar/taggy'
+					target='_blank'
+					variant={"outline"}
+					size={"sm"}
+					my={`${isDesktop ? "0" : "4"}`}
+					gap={2}
+					display={"flex"}
+				>
 					<IconTaggyGithub width={"20px"} />
 					Star on Github
-				</Button>
+				</Link>
 			</Flex>
 		</Center>
 	)
