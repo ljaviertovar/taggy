@@ -11,7 +11,7 @@ export default function TaggyCaption({ textCaptionTags }: Props) {
 	const caption = useTaggyStore(state => state.caption)
 
 	const [isDesktop] = useMediaQuery("(min-width: 769px)")
-
+	const manito = isDesktop ? "👉" : "👇"
 	return (
 		<>
 			<Flex alignItems={"center"} mb={2}>
@@ -43,7 +43,7 @@ export default function TaggyCaption({ textCaptionTags }: Props) {
 						)}
 					</>
 				) : (
-					<Text size={"lg"}>Please, select some hashtags. 👉</Text>
+					<Text size={"lg"}>Please, select some hashtags. {manito}</Text>
 				)}
 			</>
 

@@ -1,4 +1,4 @@
-import { Center, Text, VStack, useMediaQuery, Flex, Container } from "@chakra-ui/react"
+import { Center, Text, VStack, Container } from "@chakra-ui/react"
 import { TaggyDropzone } from "../ui"
 
 export default function ScanningArea() {
