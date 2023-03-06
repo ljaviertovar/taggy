@@ -9,9 +9,23 @@ export default function ScanningArea() {
 			</Center>
 
 			<Container mt={8} maxW='container.sm'>
-				Optimize your Instagram posts easily. Just upload your image and let us automatically detect and classify
-				keywords. Then, we translate the detected keywords into trending hashtags, captions, and quotes. Save time and
-				improve the visibility of your posts.
+				<Text
+					as={"h2"}
+					mb={6}
+					textAlign={"center"}
+					bgGradient='linear(to-l, #5EAD27, #ff3385)'
+					bgClip='text'
+					fontSize='lg'
+					fontWeight='extrabold'
+				>
+					Change the dimensions of your image and select trending hashtags to generate perzonalized captions and quotes!
+				</Text>
+				<Text textAlign={"center"} color={"textBtn.900"}>
+					We detect and classify keywords. Then, we translate them into trending texts.
+				</Text>
+				<Text textAlign={"center"} color={"textBtn.900"}>
+					Save time and improve the visibility of your posts.
+				</Text>
 			</Container>
 		</VStack>
 	)
