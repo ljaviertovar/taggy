@@ -20,7 +20,6 @@ specifiers:
   eslint-config-next: 13.1.6
   framer-motion: ^9.0.7
   next: 13.1.6
-  pnpm: ^7.28.0
   react: 18.2.0
   react-copy-to-clipboard: ^5.1.0
   react-dom: 18.2.0
@@ -48,7 +47,6 @@ dependencies:
   eslint-config-next: 13.1.6_7kw3g6rralp5ps6mg3uyzz6azm
   framer-motion: 9.0.7_biqbaboplfbrettd7655fr4n2y
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
-  pnpm: 7.29.0
   react: 18.2.0
   react-copy-to-clipboard: 5.1.0_react@18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -3730,12 +3728,6 @@ packages:
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
-    dev: false
-
-  /pnpm/7.29.0:
-    resolution: {integrity: sha512-SyJGcUK7gmLSJYjspL6iVOR9CS7ARYA7K0JmJkjn+MMxEJBUwzc0XdPBNwh5q8dxs+iR2ZQBalmI1lI24GRVOA==}
-    engines: {node: '>=14.6'}
-    hasBin: true
     dev: false
 
   /postcss/8.4.14:

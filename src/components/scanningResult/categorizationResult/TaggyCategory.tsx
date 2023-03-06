@@ -1,4 +1,4 @@
-import { Container, Heading } from "@chakra-ui/react"
+import { Box, Container, Heading } from "@chakra-ui/react"
 import { TaggyTag } from "."
 
 import { Tag } from "@/types"
