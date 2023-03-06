@@ -29,14 +29,23 @@ export default function TaggyCaption({ textCaptionTags }: Props) {
 					</Button>
 				</Tooltip>
 			</Flex>
-			{caption.status === "LOADING" ? (
-				<VStack padding={4}>
-					<IconTaggy width={"40px"} color='taggyPrimary.900' />
-					<Text>LOADING...</Text>
-				</VStack>
-			) : (
-				<Text size={"lg"}>{caption.text}</Text>
-			)}
+
+			<>
+				{textCaptionTags !== "" ? (
+					<>
+						{caption.status === "LOADING" ? (
+							<VStack padding={4}>
+								<IconTaggy width={"40px"} color='taggyPrimary.900' />
+								<Text>LOADING...</Text>
+							</VStack>
+						) : (
+							<Text size={"lg"}>{caption.text}</Text>
+						)}
+					</>
+				) : (
+					<Text size={"lg"}>Please, select some hashtags. 👉</Text>
+				)}
+			</>
 
 			<Text mt={4} fontWeight={"bold"}>
 				{textCaptionTags}

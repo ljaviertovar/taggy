@@ -58,7 +58,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Taggy[
 		return tagsDetected.filter((tag: string) => !allTags.includes(tag))
 	}
 
-	const topTags = taggyAdapter(taggyTags.top100, true)
+	let topTags = taggyAdapter(taggyTags.top100, true)
 	const otherTopTags = getOtherTopTags(taggyTags.top100)
 	const art = taggyAdapter(taggyTags.art)
 	const bussiness = taggyAdapter(taggyTags.bussiness)
@@ -76,7 +76,14 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Taggy[
 	const techAndGadgets = taggyAdapter(taggyTags.techAndGadgets)
 	const travel = taggyAdapter(taggyTags.travel)
 	const wedding = taggyAdapter(taggyTags.wedding)
-	const allKewords = taggyAdapter(getRestKewords())
+	let allKewords = taggyAdapter(getRestKewords(), !topTags.length ? true : false)
+
+	if (!topTags.length) {
+		topTags = taggyTags.top12.map(tag => {
+			allTags.push(tag)
+			return { name: tag, selected: false }
+		})
+	}
 
 	if (!photography.length) {
 		photography = taggyTags.photography.map(tag => {

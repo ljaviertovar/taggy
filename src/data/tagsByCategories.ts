@@ -101,6 +101,21 @@ export const top100 = [
 	"paris",
 ]
 
+export const top12 = [
+	"love",
+	"instagood",
+	"fashion",
+	"Beautiful",
+	"like4like",
+	"picoftheday",
+	"art",
+	"happy",
+	"followme",
+	"style",
+	"travel",
+	"life",
+]
+
 export const likesAndFollows = [
 	"likes",
 	"like",

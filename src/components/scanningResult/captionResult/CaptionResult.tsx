@@ -14,12 +14,13 @@ export default function CaptionResult() {
 	const setCaption = useTaggyStore(state => state.setCaption)
 
 	const getCaption = () => {
+		if (!selectedTags.length) return null
 		setCaption({ ...caption, status: "LOADING" })
 		getCaptionByTags(selectedTags).then(resp => setCaption({ text: resp, status: "DONE" }))
 	}
 
 	useEffect(() => {
-		if (selectedTags) {
+		if (selectedTags && selectedTags.length > 0) {
 			getCaption()
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -51,6 +52,9 @@ export default function CaptionResult() {
 
 		return tags
 	}, [detectionResult.categoryTags])
+
+	console.log({ selectedTags })
+	console.log({ textCaptionTags })
 
 	return (
 		<>

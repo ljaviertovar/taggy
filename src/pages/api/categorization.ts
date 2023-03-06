@@ -16,17 +16,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 		auto_tagging: 0.6,
 	})
 
-	const imaggaResult = await cloudinary.uploader.upload(secure_url, {
-		categorization: "imagga_tagging",
-		auto_tagging: 0.3,
-	})
+	// const imaggaResult = await cloudinary.uploader.upload(secure_url, {
+	// 	categorization: "imagga_tagging",
+	// 	auto_tagging: 0.3,
+	// })
 
 	const awsDetectionTags = awsResult.tags
-	const imaggaDetectionTags = imaggaResult.tags
+	// const imaggaDetectionTags = imaggaResult.tags
 
 	const setTags = new Set()
 	awsDetectionTags.forEach((item: string) => setTags.add(item.replace(/\s/g, "")))
-	imaggaDetectionTags.forEach((item: string) => setTags.add(item.replace(/\s/g, "")))
+	// imaggaDetectionTags.forEach((item: string) => setTags.add(item.replace(/\s/g, "")))
 
 	const tags = Array.from(setTags) as string[]
 
