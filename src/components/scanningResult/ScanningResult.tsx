@@ -1,56 +1,51 @@
-import { useMemo } from "react"
-
-import { Box, Card, CardBody, CardHeader, Heading, HStack, Image } from "@chakra-ui/react"
-import { TaggyList, TaggyListCaption } from "./"
-import { TaggyCaption, TaggyCopyToClipboard } from "../ui"
-
-import { useDropzoneStore } from "@/store/dropzoneStore"
-import ImageOptimized from "./ImageOptimized"
+import { Card, CardBody, CardHeader, Heading, SimpleGrid, Center, Button, VStack } from "@chakra-ui/react"
+import { CaptionResult, ImageOptimized, TaggyList } from "./"
+import { useTaggyStore } from "../../store/taggyStore"
+import IconTaggyNewImage from "../../assets/taggyIcons/IconTaggyNewImage"
 
 export default function ScanningResult() {
-	const detectionResult = useDropzoneStore(state => state.detectionResult)
-
-	const textTags = useMemo(() => {
-		let text = ".\n.\n.\n.\n.\n"
-
-		for (let category of detectionResult.categoryTags) {
-			for (let tag of category.tags) {
-				if (tag.selected) {
-					text += `#${tag.name} `
-				}
-			}
-		}
-
-		return text.trim()
-	}, [detectionResult.categoryTags])
-
-	console.log({ detectionResult })
+	const setInitialState = useTaggyStore(state => state.setInitialState)
 
 	return (
-		<HStack spacing={8} alignItems={"flex-start"}>
-			<Card width={"50%"}>
-				<CardBody>
-					<Box>
+		<VStack gap={6}>
+			<SimpleGrid spacing={12} templateColumns='repeat(auto-fill, minmax(400px, 1fr))'>
+				<Card
+					padding={6}
+					bgGradient='linear(taggyCardBg.900 0%, taggyCardBg.900 30%, taggyGray.900 70%)'
+					boxShadow={"none"}
+				>
+					<CardBody padding={0}>
 						<ImageOptimized />
-						<TaggyCaption />
-					</Box>
-					<Box>
-						<TaggyCopyToClipboard text={textTags} />
-						<TaggyListCaption />
-					</Box>
-				</CardBody>
-			</Card>
+						<CaptionResult />
+					</CardBody>
+				</Card>
 
-			<Card width={"50%"}>
-				<CardHeader>
-					<Heading as='h3' size='lg' marginBottom={0}>
-						Suggested Hashtags
-					</Heading>
-				</CardHeader>
-				<CardBody>
-					<TaggyList />
-				</CardBody>
-			</Card>
-		</HStack>
+				<Card
+					padding={6}
+					bgGradient='linear(taggyCardBg.900 0%, taggyCardBg.900 30%, taggyGray.900 70%)'
+					boxShadow={"none"}
+				>
+					<CardHeader padding={0}>
+						<Heading as='h3' size='md' textTransform={"uppercase"} textAlign={"center"} color='taggyPrimary.900'>
+							Suggested Hashtags
+						</Heading>
+					</CardHeader>
+					<CardBody padding={0}>
+						<TaggyList />
+					</CardBody>
+				</Card>
+			</SimpleGrid>
+			<Center>
+				<Button
+					bg='taggyTertiary.900'
+					_hover={{ bg: "#3385ff" }}
+					textTransform={"uppercase"}
+					gap={2}
+					onClick={() => setInitialState()}
+				>
+					New image <IconTaggyNewImage width={"30px"} />
+				</Button>
+			</Center>
+		</VStack>
 	)
 }

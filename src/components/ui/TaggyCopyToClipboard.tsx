@@ -1,3 +1,5 @@
+import IconTaggyCopy from "../../assets/taggyIcons/IconTaggyCopy"
+import { Button, Flex, Center } from "@chakra-ui/react"
 import { useState } from "react"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 
@@ -17,9 +19,19 @@ export default function TaggyCopyToClipboard({ text = "" }: Props) {
 
 	return (
 		<CopyToClipboard text={text}>
-			<button onClick={() => setCopied()}>
-				{isCopied ? <span title='Copied!'>Copied</span> : <span title='Copy to Clipboard'>Copy</span>}
-			</button>
+			<Button variant={"unstyled"} color={"textBtn.900"}  _hover={{color: '#e6e6e6' }} onClick={() => setCopied()}>
+				{isCopied ? (
+					<span>Copied!</span>
+				) : (
+					<>
+						<Flex>
+							<Center>
+								Copy to Clipboard <IconTaggyCopy width={'40px'} color='taggyPrimary.900' />
+							</Center>
+						</Flex>
+					</>
+				)}
+			</Button>
 		</CopyToClipboard>
 	)
 }

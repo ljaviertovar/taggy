@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 				{ role: "system", content: "You are a helpful Community Manager." },
 				{
 					role: "user",
-					content: `Write a 45-word caption for an Instagram post. Use the instructions below:\nUse a natural tone.\nAdd no more than 5 emojis.\nUse the following keywords as a context: ${text.trim()}.\nDon't return hashtags.`,
+					content: `Write 3 short inspirational qoutes for an Instagram post. Use the instructions below:\nUse a natural tone.\nAdd no more than 5 emojis.\nUse the following keywords as a context: ${text.trim()}.\nDon't return hashtags.`,
 				},
 			],
 		},
@@ -29,9 +29,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
 	const choices = data.choices
 	let message = choices[0].message.content
-
-	message = message.split(" #")[0]
-	message = message.replace('"', "")
 
 	res.status(200).json(message)
 }

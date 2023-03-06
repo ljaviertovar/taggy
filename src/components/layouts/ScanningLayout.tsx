@@ -1,6 +1,6 @@
 import Head from "next/head"
-import { Box } from "@chakra-ui/react"
-import { Footer, Header } from "../ui"
+import { Grid } from "@chakra-ui/react"
+
 interface Props {
 	children: React.ReactNode | React.ReactNode[]
 	title: string
@@ -8,7 +8,7 @@ interface Props {
 	imageUrl?: string
 }
 
-export default function MainLayout({ children, imageUrl, pageDescription, title }: Props) {
+export default function ScanningLayout({ children, imageUrl, pageDescription, title }: Props) {
 	return (
 		<>
 			<Head>
@@ -21,14 +21,9 @@ export default function MainLayout({ children, imageUrl, pageDescription, title 
 
 				{imageUrl && <meta name='og:image' content={imageUrl} />}
 			</Head>
-
-			<Header />
-
-			<Box as={"main"} width={"80%"} maxW={"1200px"} margin={"auto"} mb={28}>
+			<Grid height='100vh' placeContent='center'>
 				{children}
-			</Box>
-
-			<Footer />
+			</Grid>
 		</>
 	)
 }

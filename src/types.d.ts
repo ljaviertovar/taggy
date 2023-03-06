@@ -6,6 +6,11 @@ export enum ImageStatus {
 	ERROR,
 }
 
+export enum TextSelected {
+	CAPTION,
+	QUOTES,
+}
+
 export type DetectionResult = {
 	images: TaggyImage
 	categoryTags: Taggy[]

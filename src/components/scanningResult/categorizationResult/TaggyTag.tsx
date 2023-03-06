@@ -1,6 +1,6 @@
 import { Tag, TagLabel } from "@chakra-ui/react"
-import { AddIcon, CloseIcon } from "@chakra-ui/icons"
-import { useDropzoneStore } from "../../../store/dropzoneStore"
+import { AddIcon, CloseIcon, SmallAddIcon, SmallCloseIcon } from "@chakra-ui/icons"
+import { useTaggyStore } from "../../../store/taggyStore"
 
 interface Props {
 	category: string
@@ -9,22 +9,25 @@ interface Props {
 }
 
 export default function TaggyTag({ category, tag, enabled }: Props) {
-	const toggleTag = useDropzoneStore(state => state.toggleTag)
+	const toggleTag = useTaggyStore(state => state.toggleTag)
 
 	return (
 		<Tag
-			as={"div"}
-			size={"md"}
 			key={tag}
-			borderRadius='full'
+			size={"md"}
+			borderRadius='6px'
+			border={"2px solid"}
+			borderColor='taggySecondary.900'
+			color={"#ffffff"}
+			gap={1}
 			variant='solid'
-			colorScheme={enabled ? "" : "green"}
-			sx={{ minW: "auto" }}
-			onClick={() => toggleTag(category, tag)}
+			background={enabled ? "taggyDisabled.900" : "taggySecondary.900"}
 			cursor='pointer'
+			margin={1}
+			onClick={() => toggleTag(category, tag)}
 		>
-			<TagLabel>{tag}</TagLabel>
-			{!enabled ? <AddIcon /> : <CloseIcon />}
+			<TagLabel>#{tag}</TagLabel>
+			{!enabled ? <SmallAddIcon w={"16px"} fontSize={"20px"} /> : <SmallCloseIcon w={"16px"} fontSize={"16px"} />}
 		</Tag>
 	)
 }

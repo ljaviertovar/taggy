@@ -4,8 +4,5 @@
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-  border: 2px solid;
-  border-radius: 8px;
-  border-style: dashed;
-  padding: 2rem;
+  width: 100%;
 }

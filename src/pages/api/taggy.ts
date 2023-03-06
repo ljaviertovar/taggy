@@ -71,12 +71,19 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Taggy[
 	const music = taggyAdapter(taggyTags.music)
 	const nature = taggyAdapter(taggyTags.nature)
 	const pet = taggyAdapter(taggyTags.pet)
-	const photography = taggyAdapter(taggyTags.photography)
+	let photography = taggyAdapter(taggyTags.photography)
 	const reels = taggyAdapter(taggyTags.reels)
 	const techAndGadgets = taggyAdapter(taggyTags.techAndGadgets)
 	const travel = taggyAdapter(taggyTags.travel)
 	const wedding = taggyAdapter(taggyTags.wedding)
 	const allKewords = taggyAdapter(getRestKewords())
+
+	if (!photography.length) {
+		photography = taggyTags.photography.map(tag => {
+			allTags.push(tag)
+			return { name: tag, selected: false }
+		})
+	}
 
 	res.status(200).json([
 		{

@@ -1,7 +1,7 @@
-import { Tag } from "@/types"
-import { Box, Container, Heading, HStack } from "@chakra-ui/react"
+import { Box, Container, Heading } from "@chakra-ui/react"
 import { TaggyTag } from "."
 
+import { Tag } from "@/types"
 interface Props {
 	category: string
 	tags: Tag[]
@@ -9,15 +9,15 @@ interface Props {
 
 export default function TaggyCategory({ category, tags }: Props) {
 	return (
-		<Container>
-			<Heading as='h4' size='md' mt={4} mb={4}>
+		<Container padding={0}>
+			<Heading as='h4' size='md' mt={6} mb={2} textTransform={"capitalize"}>
 				{category}
 			</Heading>
-			<Box>
+			<>
 				{tags.map(tag => (
 					<TaggyTag key={tag.name} category={category} tag={tag.name} enabled={tag.selected} />
 				))}
-			</Box>
+			</>
 		</Container>
 	)
 }

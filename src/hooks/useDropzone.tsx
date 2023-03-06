@@ -2,7 +2,7 @@ import { MutableRefObject, useEffect } from "react"
 
 import Dropzone from "dropzone"
 
-import { useDropzoneStore } from "@/store/dropzoneStore"
+import { useTaggyStore } from "@/store/taggyStore"
 
 import { ImageStatus, TaggyImages } from "@/types.d"
 
@@ -10,9 +10,9 @@ import "dropzone/dist/dropzone.css"
 import { scanningAndCategorization } from "@/services/cloudinary"
 
 export default function useDropzone(dropzoneRef: MutableRefObject<HTMLFormElement | null>) {
-	const setImageStatus = useDropzoneStore(state => state.setImageStatus)
-	const setImageSelected = useDropzoneStore(state => state.setImageSelected)
-	const setDetectionResult = useDropzoneStore(state => state.setDetectionResult)
+	const setImageStatus = useTaggyStore(state => state.setImageStatus)
+	const setImageSelected = useTaggyStore(state => state.setImageSelected)
+	const setDetectionResult = useTaggyStore(state => state.setDetectionResult)
 
 	useEffect(() => {
 		if (!dropzoneRef?.current?.dropzone) {
