@@ -1,8 +1,8 @@
 import { Box, Button, Center, Flex, Image, Link, useMediaQuery } from "@chakra-ui/react"
 import IconTaggySquareImage from "../../assets/taggyIcons/IconTaggySquareImage"
 import IconTaggyRectangle from "../../assets/taggyIcons/IconTaggyRectangle"
-import IconTaggySquareImageHorizontal from "../../assets/taggyIcons/IconTaggySquareImageHorizontal"
-import IconTaggySquareImageVertical from "../../assets/taggyIcons/IconTaggySquareImageVertical"
+import IconTaggyRectangleFull from "../../assets/taggyIcons/IconTaggyRectangleFull"
+import IconTaggySquareFull from "../../assets/taggyIcons/IconTaggySquareFull"
 import IconTaggyDownloadImage from "../../assets/taggyIcons/IconTaggyDownloadImage"
 
 import { useTaggyStore } from "@/store/taggyStore"
@@ -35,7 +35,7 @@ export default function ImageOptimized() {
 						height={"30px"}
 						onClick={() => setImageSelected(images.squarePad)}
 					>
-						<IconTaggySquareImageVertical
+						<IconTaggySquareFull
 							fill={`${imageSelected === images.squarePad ? "#e6e6e6" : "#4d4d4d"}`}
 							width={"30px"}
 						/>
@@ -49,22 +49,11 @@ export default function ImageOptimized() {
 						height={"30px"}
 						onClick={() => setImageSelected(images.verticalPad)}
 					>
-						<IconTaggySquareImageHorizontal
+						<IconTaggyRectangleFull
 							fill={`${imageSelected === images.verticalPad ? "#e6e6e6" : "#4d4d4d"}`}
 							width={"30px"}
 						/>
 					</Button>
-					{/* <Button
-						variant={"unstyled"}
-						width={"30px"}
-						height={"30px"}
-						onClick={() => setImageSelected(images.horizontalPad)}
-					>
-						<IconTaggySquareImageVertical
-							fill={`${imageSelected === images.horizontalPad ? "#e6e6e6" : "#4d4d4d"}`}
-							width={"30px"}
-						/>
-					</Button> */}
 				</Flex>
 				<Box mt={`${isDesktop ? "0px" : "10px"}`}>
 					<Link
