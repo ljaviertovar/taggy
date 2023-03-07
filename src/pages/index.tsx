@@ -1,9 +1,9 @@
 import { Center } from "@chakra-ui/react"
 import { MainLayout, ScanningLayout } from "@/components/layouts"
 import { ScanningResult } from "@/components/scanningResult"
-import { ScanningArea, ScanningLoading, UploadingLoading } from "@/components/setupScanning"
+import { ScanningArea, ScanningLoading, UploadingLoading, TaggyError } from "@/components/setupScanning"
 
-import { useTaggyStore } from "../store/taggyStore"
+import { useTaggyStore } from "@/store/taggyStore"
 
 import { ImageStatus } from "@/types.d"
 
@@ -23,7 +23,7 @@ export default function HomePage() {
 				<ScanningLayout title={"Taggy"} pageDescription={""}>
 					{imageStatus === ImageStatus.UPLOADING && <UploadingLoading />}
 					{imageStatus === ImageStatus.SCANNING && <ScanningLoading />}
-					{imageStatus === ImageStatus.ERROR && <span>Ups!</span>}
+					{imageStatus === ImageStatus.ERROR && <TaggyError />}
 				</ScanningLayout>
 			)}
 		</>

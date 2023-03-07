@@ -1,0 +1,26 @@
+.iconLoading {
+    animation: scale-element 2s linear infinite;
+}
+.scaleElement{
+    animation: scale-element 1s ease-in-out;
+}
+
+@keyframes scale-element {
+    from {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    to {
+        transform: scale(1);
+    }
+} 
+@keyframes loading-spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+} 
