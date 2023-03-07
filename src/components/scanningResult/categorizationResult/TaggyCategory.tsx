@@ -8,10 +8,11 @@ interface Props {
 }
 
 export default function TaggyCategory({ category, tags }: Props) {
+	const cat = category === "Top Hashtags" ? `🔥 ${category}` : category
 	return (
 		<Container padding={0}>
 			<Heading as='h4' size='md' mt={6} mb={2} textTransform={"capitalize"}>
-				{category}
+				{cat}
 			</Heading>
 			<>
 				{tags.map(tag => (
