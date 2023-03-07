@@ -6,8 +6,7 @@ import animations from "@/styles/animations.module.css"
 export default function ScanningLoading() {
 	return (
 		<VStack padding={12}>
-			<IconTaggy className={animations.iconLoading} width={'150px'}/>
-			<Text fontSize={22} textAlign={'center'}>Wait a few seconds to see your results 😊</Text>
+			<Text fontSize={22} textAlign={'center'}>Ups!, something went wrong 😣, we are working 💻</Text>
 		</VStack>
 	)
 }

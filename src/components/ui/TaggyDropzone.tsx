@@ -5,6 +5,7 @@ import { FaCloudUploadAlt } from "react-icons/fa"
 import useDropzone from "@/hooks/useDropzone"
 
 import styles from "@/styles/dropzone.module.css"
+import animations from "@/styles/animations.module.css"
 import IconTaggyAddImage from "../../assets/taggyIcons/IconTaggyAddImage"
 
 import TriangleBackground from "../../assets/taggyIcons/triangle.svg"
@@ -32,7 +33,7 @@ export default function TaggyDropzone({ actionUrl }: Props) {
 				<Button variant='unstyled' pointerEvents={"none"} w={"60px"} h={"60px"} mt={10}>
 					<IconTaggyAddImage width='60px' />
 				</Button>
-				<Text as='b' fontSize={`${isDesktop ? 'lg' : 'md'}`} maxW={"160px"} textAlign={"center"} pointerEvents={"none"}>
+				<Text className={animations.scaleElement} as='b' fontSize={`${isDesktop ? 'lg' : 'md'}`} maxW={"160px"} textAlign={"center"} pointerEvents={"none"}>
 					Drag your image here or tap to upload!
 				</Text>
 			</form>
