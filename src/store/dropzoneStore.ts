@@ -10,6 +10,10 @@ interface State {
 		text: string
 		status: string
 	}
+	quotes: {
+		text: string
+		status: string
+	}
 }
 
 const INITIAL_RESULT_STATE = {
@@ -17,12 +21,14 @@ const INITIAL_RESULT_STATE = {
 	categoryTags: [],
 }
 const INITIAL_CAPTION_STATE = { text: "", status: "DONE" }
+const INITIAL_QUOTES_STATE = { text: "", status: "DONE" }
 
 interface Actions {
 	setImageStatus: (value: ImageStatus) => void
 	setDetectionResult: (value: DetectionResult) => void
 	toggleTag: (category: string, tag: string) => void
 	setCaption: (value: { text: string; status: string }) => void
+	setQuotes: (value: { text: string; status: string }) => void
 	setImageSelected: (value: string) => void
 }
 
@@ -31,6 +37,7 @@ export const useDropzoneStore = create<State & Actions>((set, get) => ({
 	imageSelected: "",
 	detectionResult: INITIAL_RESULT_STATE,
 	caption: INITIAL_CAPTION_STATE,
+	quotes: INITIAL_QUOTES_STATE,
 	setImageStatus: value => set(state => ({ imageStatus: value })),
 	setDetectionResult: value => set(state => ({ detectionResult: value })),
 	toggleTag: (category, tag) => {
@@ -54,5 +61,6 @@ export const useDropzoneStore = create<State & Actions>((set, get) => ({
 		}))
 	},
 	setCaption: value => set(state => ({ caption: value })),
+	setQuotes: value => set(state => ({ quotes: value })),
 	setImageSelected: value => set(state => ({ imageSelected: value })),
 }))

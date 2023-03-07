@@ -1,41 +1,48 @@
 import { useEffect } from "react"
 import { Button, Container, Flex, Text } from "@chakra-ui/react"
 import { TaggyCopyToClipboard } from "@/components/ui"
-import { TaggyCaption } from "."
+import { TaggyQuotes } from "./"
 
 import IconTaggyReload from "../../../assets/taggyIcons/IconTaggyReload"
 
 import { useTaggyStore } from "@/store/taggyStore"
-import { getCaptionByTags } from "@/services/cloudinary"
+import { getQuotesByTags } from "@/services/cloudinary"
 
 interface Props {
 	selectedTags: string[]
 	textCaptionTags: string
 }
 
-export default function CaptionResult({ selectedTags, textCaptionTags }: Props) {
-	const caption = useTaggyStore(state => state.caption)
-	const setCaption = useTaggyStore(state => state.setCaption)
+export default function QuotesResult({ selectedTags, textCaptionTags }: Props) {
+	const detectionResult = useTaggyStore(state => state.detectionResult)
+	const quotes = useTaggyStore(state => state.quotes)
+	const setQuotes = useTaggyStore(state => state.setQuotes)
 
-	const getCaption = () => {
+	const getQuotes = () => {
 		if (!selectedTags.length) return null
-		setCaption({ ...caption, status: "LOADING" })
-		getCaptionByTags(selectedTags).then(resp => setCaption({ text: resp, status: "DONE" }))
+		setQuotes({ ...quotes, status: "LOADING" })
+		getQuotesByTags(selectedTags).then(resp => {
+			console.log("ACAAAAA", resp)
+			setQuotes({ text: resp, status: "DONE" })
+		})
 	}
+
+	console.log({ quotes })
 
 	useEffect(() => {
 		if (selectedTags.length > 0) {
-			getCaption()
+			getQuotes()
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	console.log({ selectedTags })
 	console.log({ textCaptionTags })
+	console.log({ detectionResult })
 
 	return (
 		<Container padding={0} mt={2}>
-			<TaggyCaption showCaption={selectedTags.length > 0} captionStatus={caption.status} caption={caption.text} />
+			<TaggyQuotes showQuotes={selectedTags.length > 0} quotesStatus={quotes.status} quotes={quotes.text} />
 
 			<Text mt={4} mb={6} fontWeight='bold'>
 				{textCaptionTags}
@@ -49,13 +56,13 @@ export default function CaptionResult({ selectedTags, textCaptionTags }: Props) 
 					gap={2}
 					display={"flex"}
 					alignItems={"center"}
-					onClick={() => getCaption()}
+					onClick={() => getQuotes()}
 				>
 					<IconTaggyReload width={"30px"} color='taggyPrimary.900' />
-					Reaload caption
+					Reaload quotes
 				</Button>
 
-				<TaggyCopyToClipboard text={`${caption.text}\n.\n.\n.\n.\n.\n${textCaptionTags}`} />
+				<TaggyCopyToClipboard text={`${quotes.text}\n.\n.\n.\n.\n.\n${textCaptionTags}`} />
 			</Flex>
 		</Container>
 	)
