@@ -1,8 +1,8 @@
-import { useDropzoneStore } from "../../../store/dropzoneStore"
+import { usetaggyStore } from "../../../store/taggyStore"
 import { TaggyTagCaption } from "."
 
 export default function TaggyListCaption() {
-	const detectionResult = useDropzoneStore(state => state.detectionResult)
+	const detectionResult = usetaggyStore(state => state.detectionResult)
 
 	return (
 		<>
