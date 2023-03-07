@@ -1,8 +1,8 @@
-import { usetaggyStore } from "../../../store/taggyStore"
+import { useTaggyStore } from "../../../store/taggyStore"
 import { TaggyTagCaption } from "."
 
 export default function TaggyListCaption() {
-	const detectionResult = usetaggyStore(state => state.detectionResult)
+	const detectionResult = useTaggyStore(state => state.detectionResult)
 
 	return (
 		<>

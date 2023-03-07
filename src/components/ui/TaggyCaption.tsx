@@ -3,13 +3,13 @@ import { useMemo, useEffect } from "react"
 import { Text, VStack, HStack, Button } from "@chakra-ui/react"
 import { TaggyCopyToClipboard } from "."
 
-import { usetaggyStore } from "@/store/taggyStore"
+import { useTaggyStore } from "@/store/taggyStore"
 import { getCaptionByTags } from "../../services/cloudinary"
 
 export default function TaggyCaption() {
-	const detectionResult = usetaggyStore((state: { detectionResult: any }) => state.detectionResult)
-	const caption = usetaggyStore(state => state.caption)
-	const setCaption = usetaggyStore(state => state.setCaption)
+	const detectionResult = useTaggyStore((state: { detectionResult: any }) => state.detectionResult)
+	const caption = useTaggyStore(state => state.caption)
+	const setCaption = useTaggyStore(state => state.setCaption)
 
 	const selectedTags = useMemo(() => {
 		let tags = []
