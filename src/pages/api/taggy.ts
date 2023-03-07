@@ -8,6 +8,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Taggy[
 	const { tagsDetected } = req.body
 
 	let allTags: string[] = []
+	let selectKeywords = false
 
 	// const taggyAdapter = (tags: string[], selected = false) => {
 	// 	return tags
@@ -20,7 +21,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Taggy[
 
 	const taggyAdapter = (tags: string[], selected = false): Tag[] => {
 		const found = tags.filter(tag => tagsDetected.includes(tag) && !allTags.includes(tag))
-
 		if (found.length && !selected) {
 			return tags.map(tag => {
 				allTags.push(tag)
@@ -42,7 +42,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Taggy[
 		const topMatch = topTags.filter(tag => tagsDetected.includes(tag))
 
 		for (let tag of topTags) {
-			if (!topMatch.includes(tag) && !otherTags.includes(tag) && count < 6) {
+			if (!topMatch.includes(tag) && !otherTags.includes(tag) && !allTags.includes(tag) && count < 6) {
 				otherTags.push(tag)
 				allTags.push(tag)
 				count++
@@ -59,6 +59,14 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Taggy[
 	}
 
 	let topTags = taggyAdapter(taggyTags.top100, true)
+	if (!topTags.length) {
+		topTags = taggyTags.top12.map(tag => {
+			allTags.push(tag)
+			return { name: tag, selected: false }
+		})
+
+		selectKeywords = true
+	}
 	const otherTopTags = getOtherTopTags(taggyTags.top100)
 	const art = taggyAdapter(taggyTags.art)
 	const bussiness = taggyAdapter(taggyTags.bussiness)
@@ -72,29 +80,21 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Taggy[
 	const nature = taggyAdapter(taggyTags.nature)
 	const pet = taggyAdapter(taggyTags.pet)
 	let photography = taggyAdapter(taggyTags.photography)
-	const reels = taggyAdapter(taggyTags.reels)
-	const techAndGadgets = taggyAdapter(taggyTags.techAndGadgets)
-	const travel = taggyAdapter(taggyTags.travel)
-	const wedding = taggyAdapter(taggyTags.wedding)
-	let allKewords = taggyAdapter(getRestKewords(), !topTags.length ? true : false)
-
-	if (!topTags.length) {
-		topTags = taggyTags.top12.map(tag => {
-			allTags.push(tag)
-			return { name: tag, selected: false }
-		})
-	}
-
 	if (!photography.length) {
 		photography = taggyTags.photography.map(tag => {
 			allTags.push(tag)
 			return { name: tag, selected: false }
 		})
 	}
+	const reels = taggyAdapter(taggyTags.reels)
+	const techAndGadgets = taggyAdapter(taggyTags.techAndGadgets)
+	const travel = taggyAdapter(taggyTags.travel)
+	const wedding = taggyAdapter(taggyTags.wedding)
+	let allKewords = taggyAdapter(getRestKewords(), selectKeywords)
 
 	res.status(200).json([
 		{
-			category: "TOP Hashtags",
+			category: "Top Hashtags",
 			tags: topTags,
 		},
 		{

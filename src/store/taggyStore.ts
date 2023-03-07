@@ -74,7 +74,7 @@ export const useTaggyStore = create<State & Actions>((set, get) => ({
 		}))
 	},
 	setCaption: value => set(state => ({ caption: value })),
-	setQuotes: value => set(state => ({ caption: value })),
+	setQuotes: value => set(state => ({ quotes: value })),
 	setTextSelected: value => set(state => ({ textSelected: value })),
 	setImageSelected: value => set(state => ({ imageSelected: value })),
 	setInitialState: () => set(state => ({ ...INITIAL_TAGGY_STATE })),
