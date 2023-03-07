@@ -1,9 +1,9 @@
 import { Center } from "@chakra-ui/react"
 import { MainLayout, ScanningLayout } from "@/components/layouts"
 import { ScanningResult } from "@/components/scanningResult"
-import { ScanningArea, ScanningLoading, UploadingLoading, TaggyError} from "@/components/setupScanning"
+import { ScanningArea, ScanningLoading, UploadingLoading, TaggyError } from "@/components/setupScanning"
 
-import { useTaggyStore } from "../store/taggyStore"
+import { useTaggyStore } from "@/store/taggyStore"
 
 import { ImageStatus } from "@/types.d"
 
