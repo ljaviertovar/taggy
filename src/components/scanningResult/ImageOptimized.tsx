@@ -65,15 +65,13 @@ export default function ImageOptimized() {
 					<Link
 						href={imageSelected}
 						download
-						target={"_blank"}
+						target='_blank'
 						color={"textBtn.900"}
 						_hover={{ color: "#e6e6e6", textDecoration: "none" }}
 					>
-						<Flex>
-							<Center>
-								Save Image&nbsp;&nbsp;
-								<IconTaggyDownloadImage width={"30px"} color='taggyPrimary.900' />
-							</Center>
+						<Flex alignItems={"center"} gap={2}>
+							Save Image
+							<IconTaggyDownloadImage width={"30px"} color='taggyPrimary.900' />
 						</Flex>
 					</Link>
 				</Box>

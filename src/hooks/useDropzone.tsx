@@ -40,13 +40,13 @@ export default function useDropzone(dropzoneRef: MutableRefObject<HTMLFormElemen
 						const images: TaggyImages = {
 							original: response.secure_url,
 							square: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1080,c_fill,ar_1:1/${response.public_id}`,
-							squareBlur: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1080,c_fill,ar_1:1,blur:1000/${response.public_id}`,
+							squareBlur: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1080,c_fill,ar_1:1,e_blur:1000/${response.public_id}`,
 							squarePad: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1080,c_pad,b_auto:predominant,ar_1:1/${response.public_id}`,
-							squareBlurPad: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1080,c_pad,b_auto:predominant,ar_1:1/${response.public_id}`,
+							squareBlurPad: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1080,c_pad,b_auto:predominant,ar_1:1,e_blur:1000/${response.public_id}`,
 							vertical: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1350,c_fill,ar_4:5/${response.public_id}`,
-							verticalBlur: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1350,c_fill,ar_4:5,blur:1000/${response.public_id}`,
+							verticalBlur: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1350,c_fill,ar_4:5,e_blur:1000/${response.public_id}`,
 							verticalPad: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1350,c_pad,b_auto:predominant,ar_4:5/${response.public_id}`,
-							verticalBlurPad: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1350,c_pad,b_auto:predominant,ar_4:5,blur:1000/${response.public_id}`,
+							verticalBlurPad: `${process.env.NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL}/q_auto:best,f_jpg,w_1080,h_1350,c_pad,b_auto:predominant,ar_4:5,e_blur:1000/${response.public_id}`,
 						}
 
 						setDetectionResult({ images, categoryTags: resp })
