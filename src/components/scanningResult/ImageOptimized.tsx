@@ -14,10 +14,16 @@ export default function ImageOptimized() {
 
 	const [isDesktop] = useMediaQuery("(min-width: 769px)")
 
+	let imageFallback = ""
+	if (imageSelected === images.square) imageFallback = images.squareBlur
+	if (imageSelected === images.squarePad) imageFallback = images.squareBlurPad
+	if (imageSelected === images.vertical) imageFallback = images.verticalBlur
+	if (imageSelected === images.verticalPad) imageFallback = images.verticalBlurPad
+
 	return (
 		<>
 			<Box padding={1} bg='taggyGray.500' borderRadius={3} mb={6}>
-				<Image objectFit='cover' src={imageSelected} alt='Image set up' />
+				<Image objectFit='cover' src={imageSelected} alt='My image of Instagram' fallbackSrc={imageFallback} />
 			</Box>
 			<Flex
 				justifyContent={"space-between"}
