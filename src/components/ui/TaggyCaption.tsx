@@ -4,7 +4,6 @@ import { Text, VStack, HStack, Button } from "@chakra-ui/react"
 import { TaggyCopyToClipboard } from "."
 
 import { useTaggyStore } from "@/store/taggyStore"
-
 import { getCaptionByTags } from "../../services/cloudinary"
 
 export default function TaggyCaption() {

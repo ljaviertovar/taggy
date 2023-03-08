@@ -53,9 +53,6 @@ export default function CaptionResult() {
 		return tags
 	}, [detectionResult.categoryTags])
 
-	console.log({ selectedTags })
-	console.log({ textCaptionTags })
-
 	return (
 		<>
 			<Container padding={0} mt={2} mb={8}>

@@ -8,11 +8,9 @@ export default function TagList() {
 
 	return (
 		<Container padding={0}>
-			{detectionResult.categoryTags.map((tag, i) => {
+			{detectionResult.categoryTags.map(tag => {
 				if (!tag.tags.length) return null
-				let category = tag.category
-				if (i === 0) category = `🔥 ${category}`
-				return <TaggyCategory key={tag.category} category={category} tags={tag.tags} />
+				return <TaggyCategory key={tag.category} category={tag.category} tags={tag.tags} />
 			})}
 		</Container>
 	)
