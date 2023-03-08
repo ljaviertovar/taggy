@@ -1,6 +1,8 @@
 import { IconTaggy } from "@/assets/taggyIcons"
 import { Text, VStack, useMediaQuery } from "@chakra-ui/react"
 
+import animations from "@/styles/animations.module.css"
+
 interface Props {
 	showCaption: boolean
 	captionStatus: string

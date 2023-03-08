@@ -8,7 +8,7 @@ export const scanningAndCategorization = async (secure_url: string) => {
 			uploadInfo: { secure_url },
 		},
 	})
-	console.log(categorizationResult.data)
+
 	const taggyResult = await axios({
 		method: "POST",
 		url: "/api/taggy",

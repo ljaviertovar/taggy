@@ -20,10 +20,12 @@ export type TaggyImages = {
 	original: string
 	square: string
 	squarePad: string
+	squareBlur: string
+	squareBlurPad: string
 	vertical: string
 	verticalPad: string
-	horizontal: string
-	horizontalPad: string
+	verticalBlur: string
+	verticalBlurPad: string
 }
 
 export type Taggy = { category: string; tags: Tag[] }

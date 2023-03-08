@@ -1,38 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![logo_taggy_slogan](https://user-images.githubusercontent.com/34925280/223430925-9340b7ab-dc4e-464c-9c27-b0a90bff1c06.svg)
 
-## Getting Started
+Automatically categorize and tag images using the Amazon Rekognition Auto Tagging with Cloudinary.
 
-First, run the development server:
+Change the dimensions of your image and select trending hashtags to generate perzonalized captions and quotes!
+We detect and classify keywords. Then, we translate them into trending texts.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+### Front-end
+* Nextjs
+* Chackra ui
+
+### Back-end
+* Cloudinary
+
+### Installig
+```
+pnpm run install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Env
+```
+NEXT_PUBLIC_CLOUDINARY_CLOUD_URL=
+NEXT_PUBLIC_CLOUDINARY_IMAGE_RES_URL=
+CLOUDINARY_CLOUD_NAME=
+NEXT_PUBLIC_PRESET=
+NEXT_PUBLIC_CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+OPENIA_AUTH=
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Running app
+```
+pnpm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<hr>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This app was was developed for the hackathon organized by Midudev and Cloudinary.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![image](https://user-images.githubusercontent.com/34925280/223431160-23f05241-1bf4-4ef3-ae78-41ca4a4cf487.png)
 
-## Learn More
+![image](https://user-images.githubusercontent.com/34925280/223431855-1dc089ca-c1b9-42ec-8116-4b4197fdfc8f.png)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
