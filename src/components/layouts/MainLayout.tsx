@@ -8,7 +8,7 @@ interface Props {
 	imageUrl?: string
 }
 
-export default function MainLayout({ children, imageUrl, pageDescription, title }: Props) {
+export default function MainLayout({ children, imageUrl, pageDescription, title }: Props) {	
 	return (
 		<>
 			<Head>
