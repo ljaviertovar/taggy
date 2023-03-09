@@ -1,4 +1,6 @@
 export { default as ImageOptimized } from "./ImageOptimized"
 export { default as ScanningResult } from "./ScanningResult"
+export { default as TaggyTabs } from "./TaggyTabs"
 export * from "./captionResult"
 export * from "./categorizationResult"
+export * from "./index"
