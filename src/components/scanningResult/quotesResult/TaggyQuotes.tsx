@@ -2,29 +2,38 @@ import { IconTaggy } from "@/assets/taggyIcons"
 import { Text, VStack, useMediaQuery } from "@chakra-ui/react"
 
 import animations from "@/styles/animations.module.css"
+
 interface Props {
-	showCaption: boolean
-	captionStatus: string
-	caption: string
+	showQuotes: boolean
+	quotesStatus: string
+	quotes: string
 }
 
-export default function TaggyCaption({ showCaption, captionStatus, caption }: Props) {
+export default function TaggyQuotes({ showQuotes, quotesStatus, quotes }: Props) {
 	const [isDesktop] = useMediaQuery("(min-width: 769px)")
 	const manito: string = isDesktop ? "👉" : "👇"
 
-	if (!showCaption) {
+	if (!showQuotes) {
 		return <Text size={"lg"}>Please, select some hashtags {manito}</Text>
 	}
 
+	console.log({ quotes })
+
 	return (
 		<>
-			{captionStatus === "LOADING" ? (
+			{quotesStatus === "LOADING" ? (
 				<VStack padding={4}>
 					<IconTaggy className={animations.iconLoading} width={"40px"} color='taggyPrimary.900' />
-					<Text color={"textBtn.900"}>We are generating your new caption ✍️...</Text>
+					<Text color={"textBtn.900"}>We are generating your new quotes ✍️...</Text>
 				</VStack>
 			) : (
-				<Text size={"lg"}>{caption}</Text>
+				<>
+					{quotes.split(/\n/).map((line, i) => (
+						<Text key={i} size={"lg"} mb={4}>
+							{line.replace(/\"/g, "")}
+						</Text>
+					))}
+				</>
 			)}
 		</>
 	)

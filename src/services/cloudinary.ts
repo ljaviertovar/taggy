@@ -31,3 +31,15 @@ export const getCaptionByTags = async (tags: string[]) => {
 
 	return resp.data
 }
+
+export const getQuotesByTags = async (tags: string[]) => {
+	const resp = await axios({
+		method: "POST",
+		url: "/api/ai-quotes",
+		data: {
+			tags,
+		},
+	})
+
+	return resp.data
+}

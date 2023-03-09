@@ -1,5 +1,5 @@
 import { Card, CardBody, CardHeader, Heading, SimpleGrid, Center, Button, VStack } from "@chakra-ui/react"
-import { CaptionResult, ImageOptimized, TaggyList } from "./"
+import { CaptionResult, ImageOptimized, TaggyList, TaggyTabs } from "./"
 import { useTaggyStore } from "../../store/taggyStore"
 import IconTaggyNewImage from "../../assets/taggyIcons/IconTaggyNewImage"
 
@@ -16,7 +16,7 @@ export default function ScanningResult() {
 				>
 					<CardBody padding={0}>
 						<ImageOptimized />
-						<CaptionResult />
+						<TaggyTabs />
 					</CardBody>
 				</Card>
 
