@@ -22,7 +22,6 @@ export default function QuotesResult({ selectedTags, textCaptionTags }: Props) {
 		if (!selectedTags.length) return null
 		setQuotes({ ...quotes, status: "LOADING" })
 		getQuotesByTags(selectedTags).then(resp => {
-			console.log("ACAAAAA", resp)
 			setQuotes({ text: resp, status: "DONE" })
 		})
 	}

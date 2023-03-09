@@ -2,7 +2,6 @@ import { IconTaggy } from "@/assets/taggyIcons"
 import { Text, VStack, useMediaQuery } from "@chakra-ui/react"
 
 import animations from "@/styles/animations.module.css"
-
 interface Props {
 	showCaption: boolean
 	captionStatus: string
@@ -21,8 +20,8 @@ export default function TaggyCaption({ showCaption, captionStatus, caption }: Pr
 		<>
 			{captionStatus === "LOADING" ? (
 				<VStack padding={4}>
-					<IconTaggy width={"40px"} color='taggyPrimary.900' />
-					<Text>LOADING...</Text>
+					<IconTaggy className={animations.iconLoading} width={"40px"} color='taggyPrimary.900' />
+					<Text color={"textBtn.900"}>We are generating your new caption ✍️...</Text>
 				</VStack>
 			) : (
 				<Text size={"lg"}>{caption}</Text>
