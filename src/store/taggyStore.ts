@@ -1,9 +1,11 @@
 import { create } from "zustand"
 
-import { DetectionResult, ImageStatus, TextSelected } from "@/types.d"
+import { DetectionResult, ImageStatus, TextSelected, TaggyImageType } from "@/types.d"
+import { dummy } from "dummy"
+
 interface State {
 	imageStatus: ImageStatus
-	imageSelected: string
+	imageSelected: TaggyImageType
 	detectionResult: DetectionResult
 	caption: {
 		text: string
@@ -17,7 +19,17 @@ interface State {
 }
 
 const INITIAL_RESULT_STATE = {
-	images: { original: "", square: "", squarePad: "", vertical: "", verticalPad: "", horizontal: "", horizontalPad: "" },
+	images: {
+		ORIGINAL: "",
+		SQUARE: "",
+		SQUAREPAD: "",
+		SQUAREBLUR: "",
+		SQUAREBLURPAD: "",
+		VERTICAL: "",
+		VERTICALPAD: "",
+		VERTICALBLUR: "",
+		VERTICALBLURPAD: "",
+	},
 	categoryTags: [],
 }
 
@@ -26,7 +38,7 @@ const INITIAL_QUOTES_STATE = { text: "", status: "DONE" }
 
 const INITIAL_TAGGY_STATE = {
 	imageStatus: ImageStatus.READY,
-	imageSelected: "",
+	imageSelected: TaggyImageType.SQUARE,
 	detectionResult: INITIAL_RESULT_STATE,
 	caption: INITIAL_CAPTION_STATE,
 	quotes: INITIAL_QUOTES_STATE,
@@ -40,14 +52,16 @@ interface Actions {
 	setCaption: (value: { text: string; status: string }) => void
 	setQuotes: (value: { text: string; status: string }) => void
 	setTextSelected: (value: TextSelected) => void
-	setImageSelected: (value: string) => void
+	setImageSelected: (value: TaggyImageType) => void
 	setInitialState: () => void
 }
 
 export const useTaggyStore = create<State & Actions>((set, get) => ({
 	imageStatus: ImageStatus.READY,
-	imageSelected: "",
+	// imageStatus: ImageStatus.DONE,
+	imageSelected: TaggyImageType.SQUARE,
 	detectionResult: INITIAL_RESULT_STATE,
+	// detectionResult: dummy,
 	caption: INITIAL_CAPTION_STATE,
 	quotes: INITIAL_QUOTES_STATE,
 	textSelected: TextSelected.CAPTION,

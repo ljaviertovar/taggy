@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { Center } from "@chakra-ui/react"
 import { MainLayout, ScanningLayout } from "@/components/layouts"
 import { ScanningResult } from "@/components/scanningResult"
@@ -7,25 +8,39 @@ import { useTaggyStore } from "@/store/taggyStore"
 
 import { ImageStatus } from "@/types.d"
 
-export default function HomePage() {
+function HomePage() {
 	const imageStatus = useTaggyStore(state => state.imageStatus)
+
+	const renderContent = () => {
+		switch (imageStatus) {
+			case ImageStatus.READY:
+				return <ScanningArea />
+			case ImageStatus.DONE:
+				return <ScanningResult />
+			case ImageStatus.UPLOADING:
+				return <UploadingLoading />
+			case ImageStatus.SCANNING:
+				return <ScanningLoading />
+			case ImageStatus.ERROR:
+				return <TaggyError />
+			default:
+				return null
+		}
+	}
 
 	return (
 		<>
 			{imageStatus === ImageStatus.READY || imageStatus === ImageStatus.DONE ? (
 				<MainLayout title={"Taggy"} pageDescription={""}>
-					<Center>
-						{imageStatus === ImageStatus.READY && <ScanningArea />}
-						{imageStatus === ImageStatus.DONE && <ScanningResult />}
-					</Center>
+					<Center>{renderContent()}</Center>
 				</MainLayout>
 			) : (
 				<ScanningLayout title={"Taggy"} pageDescription={""}>
-					{imageStatus === ImageStatus.UPLOADING && <UploadingLoading />}
-					{imageStatus === ImageStatus.SCANNING && <ScanningLoading />}
-					{imageStatus === ImageStatus.ERROR && <TaggyError />}
+					{renderContent()}
 				</ScanningLayout>
 			)}
 		</>
 	)
 }
+
+export default memo(HomePage)

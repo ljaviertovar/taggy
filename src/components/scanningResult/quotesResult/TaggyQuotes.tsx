@@ -17,8 +17,6 @@ export default function TaggyQuotes({ showQuotes, quotesStatus, quotes }: Props)
 		return <Text size={"lg"}>Please, select some hashtags {manito}</Text>
 	}
 
-	console.log({ quotes })
-
 	return (
 		<>
 			{quotesStatus === "LOADING" ? (
@@ -29,7 +27,7 @@ export default function TaggyQuotes({ showQuotes, quotesStatus, quotes }: Props)
 			) : (
 				<>
 					{quotes.split(/\n/).map((line, i) => (
-						<Text key={i} size={"lg"} mb={4}>
+						<Text key={`taggy${i}`} size={"lg"} mb={4}>
 							{line.replace(/\"/g, "")}
 						</Text>
 					))}
