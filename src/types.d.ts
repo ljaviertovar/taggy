@@ -12,20 +12,38 @@ export enum TextSelected {
 }
 
 export type DetectionResult = {
-	images: TaggyImage
+	images: TaggyImages
 	categoryTags: Taggy[]
 }
 
+// export type TaggyImages = TaggyImage[]
 export type TaggyImages = {
-	original: string
-	square: string
-	squarePad: string
-	squareBlur: string
-	squareBlurPad: string
-	vertical: string
-	verticalPad: string
-	verticalBlur: string
-	verticalBlurPad: string
+	ORIGINAL: string
+	SQUARE: string
+	SQUAREPAD: string
+	SQUAREBLUR: string
+	SQUAREBLURPAD: string
+	VERTICAL: string
+	VERTICALPAD: string
+	VERTICALBLUR: string
+	VERTICALBLURPAD: string
+}
+
+export type TaggyImage = {
+	url: string
+	type: TaggyImageType
+}
+
+export enum TaggyImageType {
+	ORIGINAL = "ORIGINAL",
+	SQUARE = "SQUARE",
+	SQUAREPAD = "SQUAREPAD",
+	SQUAREBLUR = "SQUAREBLUR",
+	SQUAREBLURPAD = "SQUAREBLURPAD",
+	VERTICAL = "VERTICAL",
+	VERTICALPAD = "VERTICALPAD",
+	VERTICALBLUR = "VERTICALBLUR",
+	VERTICALBLURPAD = "VERTICALBLURPAD",
 }
 
 export type Taggy = { category: string; tags: Tag[] }
