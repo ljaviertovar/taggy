@@ -20,10 +20,10 @@ export default function ScanningArea() {
 				>
 					Change the dimensions of your image and select trending hashtags to generate perzonalized captions and quotes!
 				</Text>
-				<Text textAlign={"center"} color={"textBtn.900"}>
+				<Text textAlign={"center"} color={"taggyText.900"}>
 					We detect and classify keywords. Then, we translate them into trending texts.
 				</Text>
-				<Text textAlign={"center"} color={"textBtn.900"}>
+				<Text textAlign={"center"} color={"taggyText.900"}>
 					Save time and improve the visibility of your posts.
 				</Text>
 			</Container>

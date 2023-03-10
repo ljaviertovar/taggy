@@ -31,11 +31,21 @@ function HomePage() {
 	return (
 		<>
 			{imageStatus === ImageStatus.READY || imageStatus === ImageStatus.DONE ? (
-				<MainLayout title={"Taggy"} pageDescription={""}>
+				<MainLayout
+					title={"Taggy"}
+					pageDescription={
+						"Change the dimensions of your image and select trending hashtags to generate perzonalized captions and quotes!"
+					}
+				>
 					<Center>{renderContent()}</Center>
 				</MainLayout>
 			) : (
-				<ScanningLayout title={"Taggy"} pageDescription={""}>
+				<ScanningLayout
+					title={"Taggy"}
+					pageDescription={
+						"Change the dimensions of your image and select trending hashtags to generate perzonalized captions and quotes!"
+					}
+				>
 					{renderContent()}
 				</ScanningLayout>
 			)}
