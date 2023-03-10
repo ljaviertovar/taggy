@@ -1,4 +1,4 @@
-import { Center, Link, Text } from "@chakra-ui/react"
+import { Center, Flex } from "@chakra-ui/react"
 
 export default function Footer() {
 	return (
@@ -12,14 +12,18 @@ export default function Footer() {
 			color={"textBtn.900"}
 			pt={20}
 		>
-			<Text>Made with 💚 by&nbsp;</Text>
-			<Link href='https://www.linkedin.com/in/ljaviertovar/' target='_blank' rel='nofollow'>
-				L Javier Tovar
-			</Link>
-			&nbsp;and&nbsp;
-			<Link href='https://www.instagram.com/asgaredmc/' target='_blank' rel='nofollow'>
-				Alejandro Mendiola
-			</Link>
+			<Flex flexDir={"column"} justifyContent={"center"} alignContent={"center"} textAlign={"center"}>
+				<span>Made with 💚 by</span>
+				<div>
+					<a href='https://www.linkedin.com/in/ljaviertovar/' target='_blank' rel='nofollow noreferrer'>
+						L Javier Tovar
+					</a>
+					<span>&nbsp;and&nbsp;</span>
+					<a href='https://www.instagram.com/asgaredmc/' target='_blank' rel='nofollow noreferrer'>
+						Alejandro Mendiola
+					</a>
+				</div>
+			</Flex>
 		</Center>
 	)
 }
