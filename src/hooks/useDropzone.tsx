@@ -37,7 +37,6 @@ export default function useDropzone(dropzoneRef: MutableRefObject<HTMLFormElemen
 					.then(resp => {
 						const images = getTaggyCloudURLS(response.secure_url, response.public_id)
 						setDetectionResult({ images, categoryTags: resp })
-						console.log("RESP==>>", { images, categoryTags: resp })
 						setImageStatus(ImageStatus.DONE)
 					})
 					.catch(err => {

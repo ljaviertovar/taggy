@@ -30,9 +30,6 @@ export default function CaptionResult({ selectedTags, textCaptionTags }: Props) 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
-	console.log({ selectedTags })
-	console.log({ textCaptionTags })
-
 	return (
 		<Container padding={0} mt={2}>
 			<TaggyCaption showCaption={selectedTags.length > 0} captionStatus={caption.status} caption={caption.text} />
