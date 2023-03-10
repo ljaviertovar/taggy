@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { Box, useMediaQuery } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 import { Footer, Header } from "../ui"
 interface Props {
 	children: React.ReactNode | React.ReactNode[]
@@ -8,9 +8,12 @@ interface Props {
 	imageUrl?: string
 }
 
-export default function MainLayout({ children, imageUrl, pageDescription, title }: Props) {
-	const [isDesktop] = useMediaQuery("(min-width: 769px)")
-
+export default function MainLayout({
+	children,
+	imageUrl = "https://res.cloudinary.com/ljtdev/image/upload/v1678488373/WhatsApp_Image_2023-03-10_at_17.45.20_xdibu7.jpg",
+	pageDescription,
+	title,
+}: Props) {
 	return (
 		<>
 			<Head>
@@ -26,7 +29,7 @@ export default function MainLayout({ children, imageUrl, pageDescription, title 
 
 			<Header />
 
-			<Box as={"main"} width={`${isDesktop ? "80%" : "100%"}`} maxW={"1200px"} margin={"auto"} mb={28}>
+			<Box as={"main"} width={["100%", "100%", "90%", "80%"]} maxW={"1200px"} margin={"auto"} mb={28}>
 				{children}
 			</Box>
 
