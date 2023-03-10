@@ -19,7 +19,7 @@ export default function TaggyCaption({ showCaption, captionStatus, caption }: Pr
 	return (
 		<>
 			{captionStatus === "LOADING" ? (
-				<VStack padding={4}>
+				<VStack padding={6}>
 					<IconTaggy className={animations.iconLoading} width={"40px"} color='taggyPrimary.900' />
 					<Text color={"textBtn.900"}>We are generating your new caption ✍️...</Text>
 				</VStack>
