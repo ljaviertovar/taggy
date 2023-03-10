@@ -26,18 +26,12 @@ export default function QuotesResult({ selectedTags, textCaptionTags }: Props) {
 		})
 	}
 
-	console.log({ quotes })
-
 	useEffect(() => {
 		if (selectedTags.length > 0) {
 			getQuotes()
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
-
-	console.log({ selectedTags })
-	console.log({ textCaptionTags })
-	console.log({ detectionResult })
 
 	return (
 		<Container padding={0} mt={2}>

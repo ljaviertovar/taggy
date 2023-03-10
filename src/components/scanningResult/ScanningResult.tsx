@@ -1,14 +1,27 @@
-import { Card, CardBody, CardHeader, Heading, SimpleGrid, Center, Button, VStack } from "@chakra-ui/react"
-import { CaptionResult, ImageOptimized, TaggyList, TaggyTabs } from "./"
+import {
+	Card,
+	CardBody,
+	CardHeader,
+	Heading,
+	SimpleGrid,
+	Center,
+	Button,
+	VStack,
+	Flex,
+	useMediaQuery,
+} from "@chakra-ui/react"
+import { ImageOptimized, TaggyList, TaggyTabs } from "./"
 import { useTaggyStore } from "../../store/taggyStore"
 import IconTaggyNewImage from "../../assets/taggyIcons/IconTaggyNewImage"
 
 export default function ScanningResult() {
 	const setInitialState = useTaggyStore(state => state.setInitialState)
 
+	const [isDesktop] = useMediaQuery("(min-width: 769px)")
+
 	return (
 		<VStack gap={6}>
-			<SimpleGrid spacing={12} templateColumns='repeat(auto-fill, minmax(400px, 1fr))'>
+			<Flex gap={12} flexDirection={`${isDesktop ? "row" : "column"}`}>
 				<Card
 					padding={6}
 					bgGradient='linear(taggyCardBg.900 0%, taggyCardBg.900 30%, taggyGray.900 70%)'
@@ -34,7 +47,7 @@ export default function ScanningResult() {
 						<TaggyList />
 					</CardBody>
 				</Card>
-			</SimpleGrid>
+			</Flex>
 			<Center>
 				<Button
 					bg='taggyTertiary.900'
