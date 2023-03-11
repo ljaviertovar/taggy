@@ -8,7 +8,7 @@ export default function ScanningResult() {
 
 	return (
 		<Box w={"full"}>
-			<SimpleGrid spacing={12} templateColumns='repeat(auto-fill, minmax(460px, 1fr))' className='GRIIIIDDD'>
+			<SimpleGrid spacing={12} templateColumns='repeat(auto-fill, minmax(375px, 1fr))'>
 				<Card
 					padding={6}
 					bgGradient='linear(taggyCardBg.900 0%, taggyCardBg.900 30%, taggyGray.900 70%)'
