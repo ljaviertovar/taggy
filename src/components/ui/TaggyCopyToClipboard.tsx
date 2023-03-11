@@ -19,14 +19,14 @@ export default function TaggyCopyToClipboard({ text = "" }: Props) {
 
 	return (
 		<CopyToClipboard text={text}>
-			<Button variant={"unstyled"} color={"textBtn.900"}  _hover={{color: '#e6e6e6' }} onClick={() => setCopied()}>
+			<Button variant={"unstyled"} color={"textBtn.900"} _hover={{ color: "#e6e6e6" }} onClick={() => setCopied()}>
 				{isCopied ? (
 					<span>Copied!</span>
 				) : (
 					<>
 						<Flex>
 							<Center>
-								Copy to Clipboard <IconTaggyCopy width={'40px'} color='taggyPrimary.900' />
+								Copy to Clipboard <IconTaggyCopy width={"40px"} color='taggyPrimary.900' />
 							</Center>
 						</Flex>
 					</>

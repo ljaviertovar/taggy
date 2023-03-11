@@ -31,7 +31,7 @@ export default function CaptionResult({ selectedTags, textCaptionTags }: Props) 
 	}, [])
 
 	return (
-		<Container padding={0} mt={2}>
+		<Container padding={0} m={0} mt={6} maxW={"full"}>
 			<TaggyCaption showCaption={selectedTags.length > 0} captionStatus={caption.status} caption={caption.text} />
 
 			<Text mt={4} mb={6} fontWeight='bold'>
