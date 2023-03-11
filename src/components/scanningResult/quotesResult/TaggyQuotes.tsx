@@ -19,12 +19,12 @@ export default function TaggyQuotes({ showQuotes, quotesStatus, quotes }: Props)
 
 	return (
 		<>
-			{quotesStatus === "LOADING" ? (
-				<VStack padding={6}>
-					<IconTaggy className={animations.iconLoading} width={"40px"} color='taggyPrimary.900' />
-					<Text color={"textBtn.900"}>We are generating your new quotes ✍️...</Text>
-				</VStack>
-			) : (
+			{/* {quotesStatus === "LOADING" ? ( */}
+			<VStack padding={6}>
+				<IconTaggy className={animations.iconLoading} width={"40px"} color='taggyPrimary.900' />
+				<Text color={"textBtn.900"}>We are generating your new quotes ✍️...</Text>
+			</VStack>
+			{/* ) : (
 				<>
 					{quotes.split(/\n/).map((line, i) => (
 						<Text key={`taggy${i}`} size={"lg"} mb={4}>
@@ -32,7 +32,7 @@ export default function TaggyQuotes({ showQuotes, quotesStatus, quotes }: Props)
 						</Text>
 					))}
 				</>
-			)}
+			)} */}
 		</>
 	)
 }

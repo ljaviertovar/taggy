@@ -6,7 +6,7 @@ import IconTaggySquareFull from "../../assets/taggyIcons/IconTaggySquareFull"
 import IconTaggyDownloadImage from "../../assets/taggyIcons/IconTaggyDownloadImage"
 
 import { useTaggyStore } from "@/store/taggyStore"
-import { useMemo, useState } from "react"
+import { useState } from "react"
 import { TaggyImageType } from "@/types.d"
 
 export default function ImageOptimized() {
@@ -20,27 +20,6 @@ export default function ImageOptimized() {
 
 	const [isDesktop] = useMediaQuery("(min-width: 769px)")
 
-	// const taggyImageSelected = useMemo(() => {
-	// 	const imageMap = {
-	// 		SQUARE: { src: images.SQUARE, fallbackSrc: images.SQUAREBLUR },
-	// 		SQUAREPAD: { src: images.SQUAREPAD, fallbackSrc: images.SQUAREBLURPAD },
-	// 		VERTICAL: { src: images.VERTICAL, fallbackSrc: images.VERTICALBLUR },
-	// 		VERTICALPAD: { src: images.VERTICALPAD, fallbackSrc: images.VERTICALBLURPAD },
-	// 	}
-
-	// 	const selectedImage = imageMap[imageSelected]
-
-	// 	if (!selectedImage) {
-	// 		return null
-	// 	}
-
-	// 	return selectedImage
-	// }, [imageSelected, images])
-
-	// const getImageSelected = (image: TaggyImageType) => {
-
-	// }
-
 	const setSelected = (type: TaggyImageType, src: string, fallback: string) => {
 		setImageSelected({
 			type,
@@ -48,8 +27,6 @@ export default function ImageOptimized() {
 			fallback,
 		})
 	}
-
-	console.log({ imageSelected })
 
 	return (
 		<>
@@ -77,19 +54,19 @@ export default function ImageOptimized() {
 					</Button>
 					<Button
 						variant='unstyled'
-						onClick={() => setSelected(TaggyImageType.SQUAREPAD, images.SQUAREPAD, images.SQUAREBLURPAD)}
+						onClick={() => setSelected(TaggyImageType.VERTICAL, images.VERTICAL, images.VERTICALBLUR)}
 					>
-						<IconTaggySquareFull
-							fill={imageSelected.type === TaggyImageType.SQUAREPAD ? "#e6e6e6" : "#4d4d4d"}
+						<IconTaggyRectangle
+							fill={imageSelected.type === TaggyImageType.VERTICAL ? "#e6e6e6" : "#4d4d4d"}
 							width='30px'
 						/>
 					</Button>
 					<Button
 						variant='unstyled'
-						onClick={() => setSelected(TaggyImageType.VERTICAL, images.VERTICAL, images.VERTICALBLUR)}
+						onClick={() => setSelected(TaggyImageType.SQUAREPAD, images.SQUAREPAD, images.SQUAREBLURPAD)}
 					>
-						<IconTaggyRectangle
-							fill={imageSelected.type === TaggyImageType.VERTICAL ? "#e6e6e6" : "#4d4d4d"}
+						<IconTaggySquareFull
+							fill={imageSelected.type === TaggyImageType.SQUAREPAD ? "#e6e6e6" : "#4d4d4d"}
 							width='30px'
 						/>
 					</Button>

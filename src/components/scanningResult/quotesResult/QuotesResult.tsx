@@ -14,7 +14,6 @@ interface Props {
 }
 
 export default function QuotesResult({ selectedTags, textCaptionTags }: Props) {
-	const detectionResult = useTaggyStore(state => state.detectionResult)
 	const quotes = useTaggyStore(state => state.quotes)
 	const setQuotes = useTaggyStore(state => state.setQuotes)
 
@@ -34,7 +33,7 @@ export default function QuotesResult({ selectedTags, textCaptionTags }: Props) {
 	}, [])
 
 	return (
-		<Container padding={0} mt={2}>
+		<Container padding={0} m={0} mt={6} maxW={"full"}>
 			<TaggyQuotes showQuotes={selectedTags.length > 0} quotesStatus={quotes.status} quotes={quotes.text} />
 
 			<Text mt={4} mb={6} fontWeight='bold'>
