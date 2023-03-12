@@ -17,32 +17,36 @@ export default function useDropzone(dropzoneRef: MutableRefObject<HTMLFormElemen
 	useEffect(() => {
 		if (!dropzoneRef?.current?.dropzone) {
 			const dropzone = new Dropzone(dropzoneRef?.current as HTMLFormElement, {
+				url: "/",
 				uploadMultiple: false,
-				acceptedFiles: ".jpg, .jpeg, .png, .webp",
+				// acceptedFiles: ".jpg, .jpeg, .png, .webp",
+				acceptedFiles: "image/*",
 				maxFiles: 1,
 			})
 
-			dropzone.on("sending", (_file, _xhr, formData) => {
+			dropzone.on("sending", (file, _xhr, formData) => {
 				setImageStatus(ImageStatus.UPLOADING)
 
-				formData.append("upload_preset", process.env.NEXT_PUBLIC_PRESET as string)
-				formData.append("timestamp", (Date.now() / 1000).toString())
-				formData.append("api_key", process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY as string)
-			})
+				const reader = new FileReader()
 
-			dropzone.on("success", (_file, response: { public_id: string; secure_url: string }) => {
-				setImageStatus(ImageStatus.SCANNING)
+				reader.onload = function (onLoadEvent) {
+					setImageStatus(ImageStatus.SCANNING)
 
-				scanningAndCategorization(response.secure_url)
-					.then(resp => {
-						const images = getTaggyCloudURLS(response.secure_url, response.public_id)
-						setDetectionResult({ images, categoryTags: resp })
-						setImageStatus(ImageStatus.DONE)
-					})
-					.catch(err => {
-						console.log(err)
-						setImageStatus(ImageStatus.ERROR)
-					})
+					const imageBase64: string = onLoadEvent.target?.result as string
+					scanningAndCategorization(imageBase64)
+						.then(resp => {
+							// console.log(resp)
+							const images = getTaggyCloudURLS(resp.secureUrl, resp.publicId)
+							setDetectionResult({ images, categoryTags: resp.categoryTags })
+							setImageStatus(ImageStatus.DONE)
+						})
+						.catch(err => {
+							console.log(err)
+							setImageStatus(ImageStatus.ERROR)
+						})
+				}
+
+				reader.readAsDataURL(file)
 			})
 
 			dropzone.on("error", (_file, response) => {

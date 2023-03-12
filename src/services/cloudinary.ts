@@ -1,12 +1,12 @@
 import axios from "axios"
 import { TaggyImages } from "../types"
 
-export const scanningAndCategorization = async (secure_url: string) => {
+export const scanningAndCategorization = async (imageBase64: string) => {
 	const categorizationResult = await axios({
 		method: "POST",
 		url: "/api/categorization",
 		data: {
-			uploadInfo: { secure_url },
+			imageBase64,
 		},
 	})
 
@@ -14,11 +14,15 @@ export const scanningAndCategorization = async (secure_url: string) => {
 		method: "POST",
 		url: "/api/taggy",
 		data: {
-			tagsDetected: categorizationResult.data,
+			tagsDetected: categorizationResult.data.tags,
 		},
 	})
 
-	return taggyResult.data
+	return {
+		categoryTags: taggyResult.data,
+		secureUrl: categorizationResult.data.secureUrl,
+		publicId: categorizationResult.data.publicId,
+	}
 }
 
 export const getCaptionByTags = async (tags: string[]) => {

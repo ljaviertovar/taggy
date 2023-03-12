@@ -6,7 +6,7 @@ export default function ScanningArea() {
 	return (
 		<VStack gap={6}>
 			<Center>
-				<TaggyDropzone actionUrl={`${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_URL}/image/upload`} />
+				<TaggyDropzone actionUrl={"/api/categorization"} />
 			</Center>
 
 			<Container mt={8} maxW='container.sm' px={6}>

@@ -1,6 +1,5 @@
 import { useRef } from "react"
 import { Button, Text, Center, useMediaQuery } from "@chakra-ui/react"
-import { FaCloudUploadAlt } from "react-icons/fa"
 
 import useDropzone from "@/hooks/useDropzone"
 
@@ -29,7 +28,7 @@ export default function TaggyDropzone({ actionUrl }: Props) {
 			w={`${isDesktop ? "420px" : "320px"}`}
 			h={`${isDesktop ? "420px" : "320px"}`}
 		>
-			<form ref={dropzoneRef} action={actionUrl} className={styles.dropzoneForm}>
+			<form ref={dropzoneRef} className={styles.dropzoneForm}>
 				<Button variant='unstyled' pointerEvents={"none"} w={"60px"} h={"60px"} mt={10}>
 					<IconTaggyAddImage width='60px' />
 				</Button>
