@@ -58,10 +58,8 @@ interface Actions {
 
 export const useTaggyStore = create<State & Actions>((set, get) => ({
 	imageStatus: ImageStatus.READY,
-	// imageStatus: ImageStatus.DONE,
 	imageSelected: TaggyImageType.SQUARE,
 	detectionResult: INITIAL_RESULT_STATE,
-	// detectionResult: dummy,
 	caption: INITIAL_CAPTION_STATE,
 	quotes: INITIAL_QUOTES_STATE,
 	textSelected: TextSelected.CAPTION,

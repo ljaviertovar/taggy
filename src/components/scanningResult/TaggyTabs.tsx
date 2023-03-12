@@ -1,16 +1,4 @@
-import { InfoIcon } from "@chakra-ui/icons"
-import {
-	Button,
-	Flex,
-	Heading,
-	Tab,
-	TabList,
-	TabPanel,
-	TabPanels,
-	Tabs,
-	Tooltip,
-	useMediaQuery,
-} from "@chakra-ui/react"
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react"
 import React, { useMemo } from "react"
 import { CaptionResult } from "./captionResult"
 import QuotesResult from "./quotesResult/QuotesResult"
@@ -18,8 +6,6 @@ import { useTaggyStore } from "@/store/taggyStore"
 
 export default function TaggyTabs() {
 	const detectionResult = useTaggyStore(state => state.detectionResult)
-
-	const [isDesktop] = useMediaQuery("(min-width: 769px)")
 
 	const textCaptionTags: string = useMemo(() => {
 		let text = ""

@@ -46,13 +46,13 @@ export const getQuotesByTags = async (tags: string[]) => {
 }
 
 export const getTaggyCloudURLS = (secure_url: string, public_id: string): TaggyImages => {
-	const SQUARE_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1080,c_fill,ar_1:1"
+	const SQUARE_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1080,c_fill,g_auto,ar_1:1"
 	const SQUAREPAD_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1080,c_pad,b_auto:predominant,ar_1:1"
-	const SQUAREBLUR_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1080,c_fill,ar_1:1,e_blur:1000"
+	const SQUAREBLUR_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1080,c_fill,g_auto,ar_1:1,e_blur:1000"
 	const SQUAREBLURPAD_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1080,c_pad,b_auto:predominant,ar_1:1,e_blur:1000"
-	const VERTICAL_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1350,c_fill,ar_4:5"
+	const VERTICAL_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1350,c_fill,g_auto,ar_4:5"
 	const VERTICALPAD_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1350,c_pad,b_auto:predominant,ar_4:5"
-	const VERTICALBLUR_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1350,c_fill,ar_4:5,e_blur:1000"
+	const VERTICALBLUR_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1350,c_fill,g_auto,ar_4:5,e_blur:1000"
 	const VERTICALBLURPAD_URL_PATHS = "q_auto:best,f_jpg,w_1080,h_1350,c_pad,b_auto:predominant,ar_4:5,e_blur:1000"
 
 	return {

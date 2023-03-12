@@ -12,7 +12,7 @@ interface Props {
 
 export default function TaggyDropzone({ actionUrl }: Props) {
 	const dropzoneRef = useRef<HTMLFormElement | null>(null)
-	const [isDesktop] = useMediaQuery('(min-width: 769px)')
+	const [isDesktop] = useMediaQuery("(min-width: 769px)")
 
 	useDropzone(dropzoneRef)
 
@@ -27,8 +27,15 @@ export default function TaggyDropzone({ actionUrl }: Props) {
 				<Button variant='unstyled' pointerEvents={"none"} w={"60px"} h={"60px"} mt={10}>
 					<IconTaggyAddImage width='60px' />
 				</Button>
-				<Text className={animations.scaleElement} as='b' fontSize={`${isDesktop ? 'lg' : 'md'}`} maxW={"160px"} textAlign={"center"} pointerEvents={"none"}>
-					Drag your image here or tap to upload!
+				<Text
+					className={animations.scaleElement}
+					as='b'
+					fontSize={`${isDesktop ? "lg" : "md"}`}
+					maxW={"160px"}
+					textAlign={"center"}
+					pointerEvents={"none"}
+				>
+					Drag and drop your photo here or tap to upload.
 				</Text>
 			</form>
 		</Center>

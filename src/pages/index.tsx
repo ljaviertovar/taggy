@@ -37,7 +37,7 @@ function HomePage() {
 						"Change the dimensions of your image and select trending hashtags to generate perzonalized captions and quotes!"
 					}
 				>
-					<Center>{renderContent()}</Center>
+					{renderContent()}
 				</MainLayout>
 			) : (
 				<ScanningLayout
