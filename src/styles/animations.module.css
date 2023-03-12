@@ -4,6 +4,11 @@
 .scaleElement{
     animation: scale-element 1s ease-in-out;
 }
+.trianglePosition {
+    position: absolute;
+    z-index: -1;
+    width: 350px;
+}
 
 @keyframes scale-element {
     from {
