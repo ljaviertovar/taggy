@@ -16,8 +16,7 @@ export default function useDropzone(dropzoneRef: MutableRefObject<HTMLFormElemen
 	useEffect(() => {
 		if (!dropzoneRef?.current?.dropzone) {
 			const dropzone = new Dropzone(dropzoneRef?.current as HTMLFormElement, {
-				url: "/",
-				method: "POST",
+				url: "/api/pin",
 				uploadMultiple: false,
 				// acceptedFiles: ".jpg, .jpeg, .png, .webp",
 				acceptedFiles: "image/*",
