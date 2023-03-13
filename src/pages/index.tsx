@@ -33,7 +33,7 @@ function HomePage() {
 				<MainLayout
 					title={"Taggy"}
 					pageDescription={
-						"Change the dimensions of your image and select trending hashtags to generate perzonalized captions and quotes!"
+						"Easily find the right words and relevant hashtags for your social media posts with Taggy and increase the visibility of your content."
 					}
 				>
 					{renderContent()}
@@ -42,7 +42,7 @@ function HomePage() {
 				<ScanningLayout
 					title={"Taggy"}
 					pageDescription={
-						"Change the dimensions of your image and select trending hashtags to generate perzonalized captions and quotes!"
+						"Easily find the right words and relevant hashtags for your social media posts with Taggy and increase the visibility of your content."
 					}
 				>
 					{renderContent()}
