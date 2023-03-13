@@ -7,11 +7,10 @@ import { useTaggyStore } from "@/store/taggyStore"
 import { ImageStatus } from "@/types.d"
 
 import "dropzone/dist/dropzone.css"
-import { getTaggyCloudURLS, scanningAndCategorization } from "@/services/cloudinary"
+import { scanningAndCategorization } from "@/services/cloudinary"
 
 export default function useDropzone(dropzoneRef: MutableRefObject<HTMLFormElement | null>) {
 	const setImageStatus = useTaggyStore(state => state.setImageStatus)
-	const setImageSelected = useTaggyStore(state => state.setImageSelected)
 	const setDetectionResult = useTaggyStore(state => state.setDetectionResult)
 
 	useEffect(() => {
@@ -36,8 +35,11 @@ export default function useDropzone(dropzoneRef: MutableRefObject<HTMLFormElemen
 					scanningAndCategorization(imageBase64)
 						.then(resp => {
 							// console.log(resp)
-							const images = getTaggyCloudURLS(resp.secureUrl, resp.publicId)
-							setDetectionResult({ images, categoryTags: resp.categoryTags })
+							setDetectionResult({
+								secureUrl: resp.secureUrl,
+								publicId: resp.publicId,
+								categoryTags: resp.categoryTags,
+							})
 							setImageStatus(ImageStatus.DONE)
 						})
 						.catch(err => {
@@ -54,5 +56,5 @@ export default function useDropzone(dropzoneRef: MutableRefObject<HTMLFormElemen
 				setImageStatus(ImageStatus.ERROR)
 			})
 		}
-	}, [dropzoneRef, setImageStatus, setDetectionResult, setImageSelected])
+	}, [dropzoneRef, setImageStatus, setDetectionResult])
 }

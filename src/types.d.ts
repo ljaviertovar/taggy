@@ -12,7 +12,8 @@ export enum TextSelected {
 }
 
 export type DetectionResult = {
-	images: TaggyImages
+	secureUrl: string
+	publicId: string
 	categoryTags: Taggy[]
 }
 
@@ -35,7 +36,7 @@ export type TaggyImage = {
 }
 
 export enum TaggyImageType {
-	ORIGINAL = "ORIGINAL",
+	// ORIGINAL = "ORIGINAL",
 	SQUARE = "SQUARE",
 	SQUAREPAD = "SQUAREPAD",
 	SQUAREBLUR = "SQUAREBLUR",
@@ -44,6 +45,21 @@ export enum TaggyImageType {
 	VERTICALPAD = "VERTICALPAD",
 	VERTICALBLUR = "VERTICALBLUR",
 	VERTICALBLURPAD = "VERTICALBLURPAD",
+}
+
+// export interface ImageParams {
+// 	SQUARE_URL_PARAMS: string
+// 	SQUAREPAD_URL_PARAMS: string
+// 	SQUAREBLUR_URL_PARAMS: string
+// 	SQUAREBLURPAD_URL_PARAMS: string
+// 	VERTICAL_URL_PARAMS: string
+// 	VERTICALPAD_URL_PARAMS: string
+// 	VERTICALBLUR_URL_PARAMS: string
+// 	VERTICALBLURPAD_URL_PARAMS: string
+// }
+
+export interface ImageParams {
+	[key: string]: string
 }
 
 export type Taggy = { category: string; tags: Tag[] }
