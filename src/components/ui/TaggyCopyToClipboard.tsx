@@ -1,5 +1,5 @@
 import IconTaggyCopy from "../../assets/taggyIcons/IconTaggyCopy"
-import { Button, Flex, Center } from "@chakra-ui/react"
+import { Button, Flex, Center, useMediaQuery } from "@chakra-ui/react"
 import { useState } from "react"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 
@@ -10,6 +10,8 @@ interface Props {
 export default function TaggyCopyToClipboard({ text = "" }: Props) {
 	const [isCopied, setIsCopied] = useState(false)
 
+	const [isDesktop] = useMediaQuery("(min-width: 769px)")
+
 	const setCopied = () => {
 		setIsCopied(true)
 		setTimeout(() => {
@@ -19,7 +21,16 @@ export default function TaggyCopyToClipboard({ text = "" }: Props) {
 
 	return (
 		<CopyToClipboard text={text}>
-			<Button variant={"unstyled"} color={"textBtn.900"} _hover={{ color: "#e6e6e6" }} onClick={() => setCopied()}>
+			<Button
+				variant={"unstyled"}
+				_hover={{ color: "#e6e6e6" }}
+				color={"textBtn.900"}
+				gap={2}
+				display={"flex"}
+				alignItems={"center"}
+				size={`${isDesktop ? "md" : "sm"}`}
+				onClick={() => setCopied()}
+			>
 				{isCopied ? (
 					<span>Copied!</span>
 				) : (

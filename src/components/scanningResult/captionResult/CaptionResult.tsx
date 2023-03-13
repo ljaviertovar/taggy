@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { Button, Container, Flex, Text } from "@chakra-ui/react"
+import { Button, Container, Flex, Text, useMediaQuery } from "@chakra-ui/react"
 import { TaggyCopyToClipboard } from "@/components/ui"
 import { TaggyCaption } from "."
 
@@ -16,6 +16,8 @@ interface Props {
 export default function CaptionResult({ selectedTags, textCaptionTags }: Props) {
 	const caption = useTaggyStore(state => state.caption)
 	const setCaption = useTaggyStore(state => state.setCaption)
+
+	const [isDesktop] = useMediaQuery("(min-width: 769px)")
 
 	const getCaption = () => {
 		if (!selectedTags.length) return null
@@ -47,6 +49,7 @@ export default function CaptionResult({ selectedTags, textCaptionTags }: Props) 
 					display={"flex"}
 					alignItems={"center"}
 					onClick={() => getCaption()}
+					size={`${isDesktop ? "md" : "sm"}`}
 				>
 					<IconTaggyReload width={"30px"} color='taggyPrimary.900' />
 					Reaload caption
