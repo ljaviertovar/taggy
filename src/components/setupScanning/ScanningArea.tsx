@@ -6,7 +6,7 @@ export default function ScanningArea() {
 	return (
 		<VStack gap={6}>
 			<Center>
-				<TaggyDropzone actionUrl={"/api/categorization"} />
+				<TaggyDropzone />
 			</Center>
 
 			<Container mt={8} maxW='container.sm' px={6}>
