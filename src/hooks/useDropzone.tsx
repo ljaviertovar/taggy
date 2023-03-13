@@ -17,6 +17,7 @@ export default function useDropzone(dropzoneRef: MutableRefObject<HTMLFormElemen
 		if (!dropzoneRef?.current?.dropzone) {
 			const dropzone = new Dropzone(dropzoneRef?.current as HTMLFormElement, {
 				url: "/",
+				method: "POST",
 				uploadMultiple: false,
 				// acceptedFiles: ".jpg, .jpeg, .png, .webp",
 				acceptedFiles: "image/*",
