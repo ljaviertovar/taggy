@@ -14,7 +14,7 @@ type ReturnProps = {
 	isFileTooLarge: boolean
 }
 
-const acceptedFileTypes = ["image/*"]
+const acceptedFileTypes: any = ["image/*"]
 const maxFileSize = 8388608
 
 export default function useTaggyDropzone(): ReturnProps {
