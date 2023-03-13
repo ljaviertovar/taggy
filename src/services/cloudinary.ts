@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ImageParams, TaggyImages } from "../types"
+import { ImageParams } from "../types"
 
 export const scanningAndCategorization = async (imageBase64: string) => {
 	const categorizationResult = await axios({

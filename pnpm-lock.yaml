@@ -16,11 +16,11 @@ specifiers:
   '@types/react': 18.0.28
   '@types/react-copy-to-clipboard': ^5.0.4
   '@types/react-dom': 18.0.11
+  '@types/react-dropzone': ^5.1.0
   '@types/react-gtm-module': ^2.0.1
   axios: ^1.3.4
   cloudinary: ^1.34.0
   cloudinary-build-url: ^0.2.4
-  dropzone: 6.0.0-beta.2
   eslint: 8.34.0
   eslint-config-next: 13.1.6
   file-saver: ^2.0.5
@@ -30,6 +30,7 @@ specifiers:
   react: 18.2.0
   react-copy-to-clipboard: ^5.1.0
   react-dom: 18.2.0
+  react-dropzone: ^14.2.3
   react-gtm-module: ^2.0.11
   react-icons: ^4.7.1
   ts-standard: ^12.0.2
@@ -51,16 +52,17 @@ dependencies:
   '@types/react': 18.0.28
   '@types/react-copy-to-clipboard': 5.0.4
   '@types/react-dom': 18.0.11
+  '@types/react-dropzone': 5.1.0_react@18.2.0
   axios: 1.3.4
   cloudinary: 1.35.0
   cloudinary-build-url: 0.2.4
-  dropzone: 6.0.0-beta.2
   file-saver: 2.0.5
   framer-motion: 9.1.7_biqbaboplfbrettd7655fr4n2y
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-copy-to-clipboard: 5.1.0_react@18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-dropzone: 14.2.3_react@18.2.0
   react-gtm-module: 2.0.11
   react-icons: 4.8.0_react@18.2.0
   typescript: 4.9.5
@@ -1581,10 +1583,6 @@ packages:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}
     dev: true
 
-  /@swc/helpers/0.2.14:
-    resolution: {integrity: sha512-wpCQMhf5p5GhNg2MmGKXzUNwxe7zRiCsmqYsamez2beP7mKPCSiu+BjZcdN95yYSzO857kr0VfQewmGpS77nqA==}
-    dev: false
-
   /@swc/helpers/0.4.14:
     resolution: {integrity: sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==}
     dependencies:
@@ -1674,6 +1672,15 @@ packages:
     resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
       '@types/react': 18.0.28
+    dev: false
+
+  /@types/react-dropzone/5.1.0_react@18.2.0:
+    resolution: {integrity: sha512-VCdDCwSsr1MT2frsVl5p8qH+LWwUGzsaNtGkEQekHviZqK0dmTbiIp2Pzfb8lTkH4oTE2JtBbWnbuM6B4FH80A==}
+    deprecated: This is a stub types definition. react-dropzone provides its own type definitions, so you do not need this installed.
+    dependencies:
+      react-dropzone: 14.2.3_react@18.2.0
+    transitivePeerDependencies:
+      - react
     dev: false
 
   /@types/react-gtm-module/2.0.1:
@@ -1986,6 +1993,11 @@ packages:
 
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+    dev: false
+
+  /attr-accept/2.2.2:
+    resolution: {integrity: sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==}
+    engines: {node: '>=4'}
     dev: false
 
   /available-typed-arrays/1.0.5:
@@ -2367,13 +2379,6 @@ packages:
     dependencies:
       no-case: 3.0.4
       tslib: 2.5.0
-
-  /dropzone/6.0.0-beta.2:
-    resolution: {integrity: sha512-k44yLuFFhRk53M8zP71FaaNzJYIzr99SKmpbO/oZKNslDjNXQsBTdfLs+iONd0U0L94zzlFzRnFdqbLcs7h9fQ==}
-    dependencies:
-      '@swc/helpers': 0.2.14
-      just-extend: 5.1.1
-    dev: false
 
   /duplexer/0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
@@ -2992,6 +2997,13 @@ packages:
 
   /file-saver/2.0.5:
     resolution: {integrity: sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==}
+    dev: false
+
+  /file-selector/0.6.0:
+    resolution: {integrity: sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==}
+    engines: {node: '>= 12'}
+    dependencies:
+      tslib: 2.5.0
     dev: false
 
   /file-uri-to-path/2.0.0:
@@ -3691,10 +3703,6 @@ packages:
       object.assign: 4.1.4
     dev: true
 
-  /just-extend/5.1.1:
-    resolution: {integrity: sha512-b+z6yF1d4EOyDgylzQo5IminlUmzSeqR1hs/bzjBNjuGras4FXq/6TrzjxfN0j+TmI0ltJzTNlqXUMCniciwKQ==}
-    dev: false
-
   /language-subtag-registry/0.3.22:
     resolution: {integrity: sha512-tN0MCzyWnoz/4nHS6uxdlFWoUZT7ABptwKPQ52Ea7URk6vll88bWBVhodtnlfEuCcKWNGoc+uGbw1cwa9IKh/w==}
     dev: true
@@ -4332,6 +4340,18 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-dropzone/14.2.3_react@18.2.0:
+    resolution: {integrity: sha512-O3om8I+PkFKbxCukfIR3QAGftYXDZfOE2N1mr/7qebQJHs7U+/RSL/9xomJNpRg9kM5h9soQSdf0Gc7OHF5Fug==}
+    engines: {node: '>= 10.13'}
+    peerDependencies:
+      react: '>= 16.8 || 18.0.0'
+    dependencies:
+      attr-accept: 2.2.2
+      file-selector: 0.6.0
+      prop-types: 15.8.1
+      react: 18.2.0
     dev: false
 
   /react-fast-compare/3.2.0:

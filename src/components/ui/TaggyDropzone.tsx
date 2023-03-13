@@ -1,29 +1,22 @@
-import { useRef } from "react"
-import { Button, Text, Center, useMediaQuery } from "@chakra-ui/react"
-import useDropzone from "@/hooks/useDropzone"
+import { Text, Center, useMediaQuery } from "@chakra-ui/react"
+import useTaggyDropzone from "@/hooks/useTaggyDropzone"
 import styles from "@/styles/dropzone.module.css"
 import animations from "@/styles/animations.module.css"
 import IconTaggyAddImage from "../../assets/taggyIcons/IconTaggyAddImage"
 import IconTaggyTriangle from "../../assets/taggyIcons/IconTaggyTriangle"
 
-interface Props {
-	actionUrl: string
-}
+export default function TaggyDropzone() {
+	const { getRootProps, getInputProps, isDragActive, isDragReject, isFileTooLarge } = useTaggyDropzone()
 
-export default function TaggyDropzone({ actionUrl }: Props) {
-	const dropzoneRef = useRef<HTMLFormElement | null>(null)
 	const [isDesktop] = useMediaQuery("(min-width: 769px)")
-
-	useDropzone(dropzoneRef)
 
 	return (
 		<Center w={`${isDesktop ? "420px" : "320px"}`} h={`${isDesktop ? "420px" : "320px"}`}>
 			<div className={animations.gradientBorder}></div>
 			<IconTaggyTriangle />
-			<form ref={dropzoneRef} action={actionUrl} className={styles.dropzoneForm}>
-				<Button variant='unstyled' pointerEvents={"none"} w={"60px"} h={"60px"} mt={10}>
-					<IconTaggyAddImage width='60px' />
-				</Button>
+			<div {...getRootProps()} className={styles.dropzoneForm}>
+				<IconTaggyAddImage width='60px' />
+				<input {...getInputProps()} />
 				<Text
 					className={animations.scaleElement}
 					as='b'
@@ -32,9 +25,12 @@ export default function TaggyDropzone({ actionUrl }: Props) {
 					textAlign={"center"}
 					pointerEvents={"none"}
 				>
-					Drag and drop your photo here or tap to upload.
+					{!isDragActive && "Drop your photo here or tap to upload"}
+					{isDragActive && !isDragReject && "Drop it like it's hot!"}
+					{isDragReject && "File type not accepted, sorry!"}
+					{isFileTooLarge && "File is too large"}
 				</Text>
-			</form>
+			</div>
 		</Center>
 	)
 }

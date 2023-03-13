@@ -30,7 +30,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 	const choices = data.choices
 	let message = choices[0].message.content
 
-	console.log({ message })
-
 	res.status(200).json(message)
 }
