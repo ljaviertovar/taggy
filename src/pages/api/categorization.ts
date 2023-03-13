@@ -7,14 +7,20 @@ cloudinary.config({
 	api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
-interface Data {
-	tags: string[]
-	secureUrl: string
-	publicId: string
-}
+type Data =
+	| {
+			tags: string[]
+			secureUrl: string
+			publicId: string
+	  }
+	| { msg: string }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
 	const { imageBase64 } = req.body
+
+	if (!imageBase64) {
+		res.status(200).json({ msg: "Image not found" })
+	}
 
 	let categorizationResult = null
 
