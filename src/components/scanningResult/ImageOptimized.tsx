@@ -49,7 +49,7 @@ export default function ImageOptimized() {
 						position: "relative",
 						height: "100%",
 						width: "100%",
-						backgroundImage: `url(${myBuildUrl(imageSelected[1], true)})`,
+						backgroundImage: `url(${myBuildUrl(imageSelected[1])})`,
 						backgroundPosition: "center center",
 						backgroundSize: "100%",
 						backgroundRepeat: "no-repeat",

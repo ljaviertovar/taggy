@@ -19,7 +19,8 @@ export default function ScanningArea() {
 					fontSize='lg'
 					fontWeight='extrabold'
 				>
-					Save time and improve the visibility of your posts!
+					Easily find the right words and relevant hashtags for your social media posts and increase the visibility of
+					your content!
 				</Text>
 
 				<Text textAlign={"center"} color={"taggyText.900"} fontWeight={"bold"}>
@@ -46,7 +47,7 @@ export default function ScanningArea() {
 					How does it work?
 				</Text>
 				<Text color={"taggyText.900"}>
-					We detect and classify the keywords of your photo. Then, we translate them into trending texts.
+					We detect and classify the keywords of your photo. Then, we translate them into trending texts and hashtags.
 				</Text>
 			</Container>
 		</VStack>
