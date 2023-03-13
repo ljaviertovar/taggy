@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { Button, Container, Flex, Text } from "@chakra-ui/react"
+import { Button, Container, Flex, Text, useMediaQuery } from "@chakra-ui/react"
 import { TaggyCopyToClipboard } from "@/components/ui"
 import { TaggyQuotes } from "./"
 
@@ -16,6 +16,8 @@ interface Props {
 export default function QuotesResult({ selectedTags, textCaptionTags }: Props) {
 	const quotes = useTaggyStore(state => state.quotes)
 	const setQuotes = useTaggyStore(state => state.setQuotes)
+
+	const [isDesktop] = useMediaQuery("(min-width: 769px)")
 
 	const getQuotes = () => {
 		if (!selectedTags.length) return null
@@ -48,6 +50,7 @@ export default function QuotesResult({ selectedTags, textCaptionTags }: Props) {
 					gap={2}
 					display={"flex"}
 					alignItems={"center"}
+					size={`${isDesktop ? "md" : "sm"}`}
 					onClick={() => getQuotes()}
 				>
 					<IconTaggyReload width={"30px"} color='taggyPrimary.900' />

@@ -1,5 +1,4 @@
 import { memo } from "react"
-import { Center } from "@chakra-ui/react"
 import { MainLayout, ScanningLayout } from "@/components/layouts"
 import { ScanningResult } from "@/components/scanningResult"
 import { ScanningArea, ScanningLoading, UploadingLoading, TaggyError } from "@/components/setupScanning"

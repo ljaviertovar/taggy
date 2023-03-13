@@ -5,7 +5,6 @@ import { dummy } from "dummy"
 
 interface State {
 	imageStatus: ImageStatus
-	imageSelected: TaggyImageType
 	detectionResult: DetectionResult
 	caption: {
 		text: string
@@ -19,17 +18,8 @@ interface State {
 }
 
 const INITIAL_RESULT_STATE = {
-	images: {
-		ORIGINAL: "",
-		SQUARE: "",
-		SQUAREPAD: "",
-		SQUAREBLUR: "",
-		SQUAREBLURPAD: "",
-		VERTICAL: "",
-		VERTICALPAD: "",
-		VERTICALBLUR: "",
-		VERTICALBLURPAD: "",
-	},
+	secureUrl: "",
+	publicId: "",
 	categoryTags: [],
 }
 
@@ -52,7 +42,6 @@ interface Actions {
 	setCaption: (value: { text: string; status: string }) => void
 	setQuotes: (value: { text: string; status: string }) => void
 	setTextSelected: (value: TextSelected) => void
-	setImageSelected: (value: TaggyImageType) => void
 	setInitialState: () => void
 }
 
@@ -88,6 +77,5 @@ export const useTaggyStore = create<State & Actions>((set, get) => ({
 	setCaption: value => set(state => ({ caption: value })),
 	setQuotes: value => set(state => ({ quotes: value })),
 	setTextSelected: value => set(state => ({ textSelected: value })),
-	setImageSelected: value => set(state => ({ imageSelected: value })),
 	setInitialState: () => set(state => ({ ...INITIAL_TAGGY_STATE })),
 }))
