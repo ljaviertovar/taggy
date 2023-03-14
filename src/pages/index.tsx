@@ -1,5 +1,4 @@
 import { memo } from "react"
-import { Center } from "@chakra-ui/react"
 import { MainLayout, ScanningLayout } from "@/components/layouts"
 import { ScanningResult } from "@/components/scanningResult"
 import { ScanningArea, ScanningLoading, UploadingLoading, TaggyError } from "@/components/setupScanning"
@@ -34,7 +33,7 @@ function HomePage() {
 				<MainLayout
 					title={"Taggy"}
 					pageDescription={
-						"Change the dimensions of your image and select trending hashtags to generate perzonalized captions and quotes!"
+						"Easily find the right words and relevant hashtags for your social media posts with Taggy and increase the visibility of your content."
 					}
 				>
 					{renderContent()}
@@ -43,7 +42,7 @@ function HomePage() {
 				<ScanningLayout
 					title={"Taggy"}
 					pageDescription={
-						"Change the dimensions of your image and select trending hashtags to generate perzonalized captions and quotes!"
+						"Easily find the right words and relevant hashtags for your social media posts with Taggy and increase the visibility of your content."
 					}
 				>
 					{renderContent()}
