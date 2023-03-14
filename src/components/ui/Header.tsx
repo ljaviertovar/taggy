@@ -9,7 +9,7 @@ export default function Header() {
 	const setInitialState = useTaggyStore(state => state.setInitialState)
 
 	return (
-		<Center as={"header"} mt={6} mb={8} w={"full"}>
+		<Center as={"header"} mt={4} mb={6} w={"full"}>
 			{imageStatus === ImageStatus.READY ? (
 				<IconTaggySlogan width={"280px"} />
 			) : (

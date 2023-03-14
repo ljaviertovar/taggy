@@ -20,7 +20,7 @@ export default function TaggyDropzone() {
 				<Text
 					className={animations.scaleElement}
 					as='b'
-					fontSize={`${isDesktop ? "lg" : "md"}`}
+					fontSize={`${isDesktop ? "sm" : "sm"}`}
 					maxW={"160px"}
 					textAlign={"center"}
 					pointerEvents={"none"}

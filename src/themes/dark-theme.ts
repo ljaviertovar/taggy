@@ -11,6 +11,7 @@ const theme = extendTheme({
 		global: () => ({
 			body: {
 				bg: "#1A1A1A",
+				fontFamily: "boston-regular",
 			},
 		}),
 	},
@@ -42,6 +43,10 @@ const theme = extendTheme({
 			900: "#808080",
 		},
 	},
+	fonts: {
+		body: 'boston',
+		heading: 'boston',
+	  },
 })
 
 export default theme
