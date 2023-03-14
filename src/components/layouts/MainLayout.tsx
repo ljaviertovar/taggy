@@ -31,7 +31,7 @@ export default function MainLayout({
 				<meta property='og:type' content='website' />
 				<meta property='og:url' content='https://www.taggy.com.mx/' />
 
-				<meta property='twitter:card' content='summary' />
+				<meta property='twitter:card' content='summary_large_image' />
 				<meta property='twitter:url' content='https://www.taggy.com.mx/' />
 				<meta property='twitter:title' content={title} />
 				<meta property='twitter:description' content={pageDescription} />
