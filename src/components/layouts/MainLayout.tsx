@@ -29,7 +29,7 @@ export default function MainLayout({
 
 			<Header />
 
-			<Box as={"main"} width={["100%", "100%", "90%", "80%"]} maxW={"1200px"} margin={"auto"} mb={28}>
+			<Box as={"main"} width={["100%", "100%", "90%", "80%"]} maxW={"1200px"} margin={"auto"} mb={18}>
 				{children}
 			</Box>
 

@@ -73,7 +73,7 @@ const IconTaggyTriangle = (props: JSX.IntrinsicAttributes & React.SVGProps<SVGSV
       d="M98.3 13 21.7 145.6h153.1L98.3 13z"
     />
     <defs>  
-        <linearGradient id="gradient" x1="50%" y1="0%" x2="50%" y2="100%" stroke-width="2" >   
+        <linearGradient id="gradient" x1="50%" y1="0%" x2="50%" y2="100%" >   
             <stop offset="0%" stop-color="#ff3385">
                 <animate attributeName="stop-color" values="#ff3385; #5EAD27; #ff3385" dur="1s" repeatCount="indefinite"></animate>
             </stop>
