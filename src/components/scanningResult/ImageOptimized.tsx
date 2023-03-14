@@ -16,6 +16,8 @@ import { taggyParams } from "@/services/cloudinary"
 export default function ImageOptimized() {
 	const [imageSelected, setImageSelected] = useState([TaggyImageType.SQUARE, TaggyImageType.SQUAREBLUR])
 
+	console.log({ imageSelected })
+
 	const detectionResult = useTaggyStore(state => state.detectionResult)
 
 	const [isDesktop] = useMediaQuery("(min-width: 769px)")
